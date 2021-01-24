@@ -14,16 +14,25 @@ public protocol Piece : CustomStringConvertible {
     
 }
 
-enum Player : CustomStringConvertible{
+public enum Player : CustomStringConvertible{
     case red
     case black
     
-    var description: String {
+    public var description: String {
         switch self {
         case .red:
             return "Red"
         case .black:
             return "Black"
+        }
+    }
+    
+    public var opponent: Player {
+        switch self {
+        case .red:
+            return .black
+        case .black:
+            return .red
         }
     }
 }
