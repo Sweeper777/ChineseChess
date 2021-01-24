@@ -44,4 +44,50 @@ class King : Piece {
         return nil
     }
     
+    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+        func isValid(_ position: Position) -> Bool {
+            if let piece = board[safe: position] {
+                return piece == nil
+            } else {
+                return false
+            }
+        }
+        
+        let xRange = 3...5
+        let yRange: ClosedRange<Int>
+        switch player {
+        case .black:
+            yRange = 0...2
+        case .red:
+            yRange = 7...9
+        }
+        
+        var endPositions = [
+            position.above(),
+            position.below(),
+            position.left(),
+            position.right(),
+        ].filter { xRange.contains($0.x) && yRange.contains($0.y) }
+        
+        let directionFuncs: [(Position) -> Position] = [
+            { $0.above() }, { $0.below() }
+        ]
+        for directionFunc in directionFuncs {
+            var currentPos = directionFunc(position)
+            while isValid(currentPos) {
+                currentPos = directionFunc(currentPos)
+            }
+            let pieceFound = board[safe: currentPos] as? Piece
+            if pieceFound?.player == self.player.opponent &&
+                pieceFound is King {
+                endPositions.append(currentPos)
+            }
+        }
+        
+        return endPositions.map { Move(from: position, to: $0) }
+    }
+    
+    init(_ player: Player) {
+        self.player = player
+    }
 }
