@@ -28,4 +28,15 @@ public class Game {
     public init() {
     }
     
+    func validateMoveRangeAndDestination(move: Move) throws -> Piece {
+        guard let movingPiece = board[safe: move.from] as? Piece,
+              let destination = board[safe: move.to] else {
+            throw MoveError.invalidPosition
+        }
+        if destination?.player == currentPlayer {
+            throw MoveError.invalidPosition
+        }
+        return movingPiece
+    }
+    
 }
