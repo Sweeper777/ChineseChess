@@ -14,3 +14,10 @@ public struct Move : Equatable, CustomStringConvertible {
         "Move from \(from) to \(to)"
     }
 }
+
+public enum MoveResult {
+    case success
+    case check
+    case checkmate
+    case stalemate
+}
