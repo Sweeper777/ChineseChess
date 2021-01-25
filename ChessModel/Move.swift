@@ -21,3 +21,10 @@ public enum MoveResult {
     case checkmate
     case stalemate
 }
+
+public enum MoveError : Error {
+    case invalidPosition
+    case blocked
+    case checked
+    case opponentsPiece
+}
