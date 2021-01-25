@@ -39,4 +39,22 @@ public class Game {
         return movingPiece
     }
     
+    private func validateKingInCheck(move: Move, player: Player) throws {
+        // try this move
+        var boardCopy = board
+        boardCopy[move.to] = board[move.from]
+        boardCopy[move.from] = nil
+        
+        // check if king in check
+        let kingPos = kingPosition(of: player, in: boardCopy)
+        let allOpposingPositions = allPositions(of: player.opponent, in: boardCopy)
+        if allOpposingPositions.contains(where: {
+            let attackingPiece = boardCopy[$0]
+            let error = attackingPiece?.validateMove(Move(from: $0, to: kingPos), in: boardCopy)
+            return error == nil
+        }) {
+            throw MoveError.checked
+        }
+    }
+    
 }
