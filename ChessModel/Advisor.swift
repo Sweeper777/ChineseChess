@@ -47,6 +47,24 @@ class Advisor : Piece {
         return nil
     }
     
+    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+        let xRange = 3...5
+        let yRange: ClosedRange<Int>
+        switch player {
+        case .black:
+            yRange = 0...2
+        case .red:
+            yRange = 7...9
+        }
+        
+        let endPositions = [
+            position.above().left(),
+            position.above().right(),
+            position.below().left(),
+            position.below().right(),
+        ].filter { xRange.contains($0.x) && yRange.contains($0.y) }
+        return endPositions.map { Move(from: position, to: $0) }
+    }
     
     init(_ player: Player) {
         self.player = player
