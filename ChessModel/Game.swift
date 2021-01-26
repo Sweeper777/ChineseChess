@@ -72,4 +72,37 @@ public class Game {
         try validateKingInCheck(move: move, player: currentPlayer)
     }
     
+    public func makeMove(_ move: Move) throws -> MoveResult {
+        guard let movingPiece = board[safe: move.from] else {
+            throw MoveError.invalidPosition
+        }
+        try validateMove(move)
+        board[move.to] = movingPiece
+        board[move.from] = nil
+        
+        // check/checkmate
+        let opposingKingPos = kingPosition(of: opposingPlayer)
+        let allMyPositions = allPositions(of: currentPlayer)
+        let check = allMyPositions.contains(where: {
+            let attackingPiece = board[$0]
+            return attackingPiece?.validateMove(Move(from: $0, to: opposingKingPos), in: board) == nil
+        })
+        let allOpposingPositions = allPositions(of: opposingPlayer)
+        let allOpposingMoves = allOpposingPositions.flatMap { board[$0]?.allMoves(from: $0, in: board) ?? [] }
+        let opposingPlayerHasNoMoves = allOpposingMoves.filter {
+            (try? validateMoveRangeAndDestination(move: $0)) != nil &&
+            (try? validateKingInCheck(move: move, player: opposingPlayer)) != nil
+        }.isEmpty
+        currentPlayer = opposingPlayer
+        switch (check, opposingPlayerHasNoMoves)  {
+        case (false, false):
+            return .success
+        case (true, false):
+            return .check
+        case (false, true):
+            return .stalemate
+        case (true, true):
+            return .checkmate
+        }
+    }
 }
