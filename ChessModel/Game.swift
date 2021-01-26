@@ -57,4 +57,19 @@ public class Game {
         }
     }
     
+    func validateMove(_ move: Move) throws {
+        
+        let movingPiece = try validateMoveRangeAndDestination(move: move)
+        
+        guard movingPiece.player == currentPlayer else {
+            throw MoveError.opponentsPiece
+        }
+        
+        if let pieceRulesError = movingPiece.validateMove(move, in: board) {
+            throw pieceRulesError
+        }
+        
+        try validateKingInCheck(move: move, player: currentPlayer)
+    }
+    
 }
