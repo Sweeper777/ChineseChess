@@ -56,6 +56,30 @@ class Elephant : Piece {
         return nil
     }
     
+    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+        let yBeforeRiver: ClosedRange<Int>
+        switch player {
+        case .red:
+            yBeforeRiver = 5...9
+        case .black:
+            yBeforeRiver = 0...4
+        }
+        
+        let dxDys = [
+            (dx: 1, dy: 1),
+            (dx: 1, dy: -1),
+            (dx: -1, dy: 1),
+            (dx: -1, dy: -1),
+        ]
+        var endPositions = [Position]()
+        for dxDy in dxDys {
+            let eyePos = Position(position.x + dxDy.dx, position.y + dxDy.dy)
+            if (board[safe: eyePos] as? Piece) == nil {
+                endPositions.append(Position(position.x + dxDy.dx * 2, position.y + dxDy.dy * 2))
+            }
+        }
+        return endPositions.map { Move(from: position, to: $0) }
+    }
     
     init(_ player: Player) {
         self.player = player
