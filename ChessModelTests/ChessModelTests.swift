@@ -35,11 +35,22 @@ class ChessModelTests: XCTestCase {
         try game.validateMove(Move(from: Position(3, 9), to: Position(4, 9)))
         try game.validateMove(Move(from: Position(3, 9), to: Position(4, 9)))
     }
+    
+    func testAdvisorMoves() throws {
+        let game = Game()
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(3, 9), to: Position(4, 8))))
+        var pieceAtDestination = game.piece(at: Position(4, 8))
+        XCTAssertTrue(pieceAtDestination is Advisor, "Piece at (4, 8) is \(pieceAtDestination?.description ?? "nil"), expected Advisor")
+        
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(3, 0), to: Position(2, 1))))
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(3, 0), to: Position(3, 2))))
+        
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(3, 0), to: Position(4, 1))))
+        pieceAtDestination = game.piece(at: Position(4, 1))
+        XCTAssertTrue(pieceAtDestination is Advisor, "Piece at (4, 1) is \(pieceAtDestination?.description ?? "nil"), expected Advisor")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
         }
     }
