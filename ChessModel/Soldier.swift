@@ -35,6 +35,23 @@ class Soldier : Piece {
         return .invalidPosition
     }
     
+    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+        var endPositions = [Position]()
+        let yBeforeRiver: ClosedRange<Int>
+        switch player {
+        case .red:
+            yBeforeRiver = 5...9
+            endPositions.append(position.above())
+        case .black:
+            yBeforeRiver = 0...4
+            endPositions.append(position.below())
+        }
+        if !yBeforeRiver.contains(position.y) {
+            endPositions.append(position.left())
+            endPositions.append(position.right())
+        }
+        return endPositions.map { Move(from: position, to: $0) }
+    }
     
     init(_ player: Player) {
         self.player = player
