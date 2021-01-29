@@ -26,6 +26,35 @@ public class Game {
     }
     
     public init() {
+        board[0, 0] = Chariot(.black)
+        board[1, 0] = Horse(.black)
+        board[2, 0] = Elephant(.black)
+        board[3, 0] = Advisor(.black)
+        board[4, 0] = King(.black)
+        board[5, 0] = Advisor(.black)
+        board[6, 0] = Elephant(.black)
+        board[7, 0] = Horse(.black)
+        board[8, 0] = Chariot(.black)
+        board[1, 2] = Cannon(.black)
+        board[7, 2] = Cannon(.black)
+        for x in stride(from: 0, through: 8, by: 2) {
+            board[x, 3] = Soldier(.black)
+        }
+        
+        board[0, 9] = Chariot(.red)
+        board[1, 9] = Horse(.red)
+        board[2, 9] = Elephant(.red)
+        board[3, 9] = Advisor(.red)
+        board[4, 9] = King(.red)
+        board[5, 9] = Advisor(.red)
+        board[6, 9] = Elephant(.red)
+        board[7, 9] = Horse(.red)
+        board[8, 9] = Chariot(.red)
+        board[1, 7] = Cannon(.red)
+        board[7, 7] = Cannon(.red)
+        for x in stride(from: 0, through: 8, by: 2) {
+            board[x, 6] = Soldier(.red)
+        }
     }
     
     func validateMoveRangeAndDestination(move: Move) throws -> Piece {
