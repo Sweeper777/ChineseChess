@@ -163,6 +163,18 @@ class ChessModelTests: XCTestCase {
         XCTAssertThrowsError(try game.makeMove(Move(from: Position(2, 5), to: Position(4, 5))))
     }
     
+    func testAllMovesValid() throws {
+        let game = Game()
+        for position in game.allPositions(of: .red) {
+            if let piece = game.piece(at: position) {
+                let allMoves = piece.allMoves(from: position, in: game.board)
+                for move in allMoves {
+                    if (try? game.validateMoveRangeAndDestination(move: move)) == nil {
+                        continue
+                    }
+                    XCTAssertNil(piece.validateMove(move, in: game.board), "\(move) is not a valid move!")
+                }
+            }
         }
     }
 }
