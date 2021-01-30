@@ -126,6 +126,18 @@ class ChessModelTests: XCTestCase {
         pieceAtDestination = game.piece(at: Position(1, 4))
         XCTAssertTrue(pieceAtDestination is Soldier, "Piece at (1, 4) is \(pieceAtDestination?.description ?? "nil"), expected Soldier")
     }
+    
+    func testCannonMoves() throws {
+        let game = Game()
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(1, 7), to: Position(1, 3))))
+        let pieceAtDestination = game.piece(at: Position(1, 3))
+        XCTAssertTrue(pieceAtDestination is Cannon, "Piece at (1, 3) is \(pieceAtDestination?.description ?? "nil"), expected Cannon")
+        
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(1, 2), to: Position(1, 8))))
+        
+    }
+    
         }
     }
 }
