@@ -68,6 +68,23 @@ class ChessModelTests: XCTestCase {
         XCTAssertTrue(pieceAtDestination is Elephant, "Piece at (0, 2) is \(pieceAtDestination?.description ?? "nil"), expected Elephant")
     }
     
+    func testHorseMoves() throws {
+        let game = Game()
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(1, 9), to: Position(2, 7))))
+        var pieceAtDestination = game.piece(at: Position(2, 7))
+        XCTAssertTrue(pieceAtDestination is Horse, "Piece at (2, 7) is \(pieceAtDestination?.description ?? "nil"), expected Horse")
+        
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(1, 0), to: Position(3, 1))))
+        
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(1, 0), to: Position(0, 2))))
+        pieceAtDestination = game.piece(at: Position(0, 2))
+        XCTAssertTrue(pieceAtDestination is Horse, "Piece at (0, 2) is \(pieceAtDestination?.description ?? "nil"), expected Horse")
+        
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(2, 7), to: Position(3, 5))))
+    }
+    
     }
         }
     }
