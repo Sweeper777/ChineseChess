@@ -18,6 +18,17 @@
 		5A65257425BBADEC00FAB962 /* ChessModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A65256425BBADEC00FAB962 /* ChessModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A65257725BBADEC00FAB962 /* ChessModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A65256225BBADEC00FAB962 /* ChessModel.framework */; };
 		5A65257825BBADEC00FAB962 /* ChessModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A65256225BBADEC00FAB962 /* ChessModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5A65258325BBB18500FAB962 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65258225BBB18500FAB962 /* Array2D.swift */; };
+		5A65258725BBB2A800FAB962 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65258625BBB2A800FAB962 /* Piece.swift */; };
+		5A65258B25BBB35400FAB962 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65258A25BBB35400FAB962 /* Game.swift */; };
+		5A65259125BBB4DA00FAB962 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65259025BBB4DA00FAB962 /* Move.swift */; };
+		5A65259525BBBBAF00FAB962 /* King.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65259425BBBBAF00FAB962 /* King.swift */; };
+		5A65259925BBCC3100FAB962 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65259825BBCC3100FAB962 /* Advisor.swift */; };
+		5A65259D25BBCFEA00FAB962 /* Elephant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65259C25BBCFEA00FAB962 /* Elephant.swift */; };
+		5A6525A125BBD2BC00FAB962 /* Horse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6525A025BBD2BC00FAB962 /* Horse.swift */; };
+		5A6525A525BBD47800FAB962 /* Chariot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6525A425BBD47800FAB962 /* Chariot.swift */; };
+		5A6525A925BBD7EE00FAB962 /* Soldier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6525A825BBD7EE00FAB962 /* Soldier.swift */; };
+		5A6525AD25BBDC9200FAB962 /* Cannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6525AC25BBDC9200FAB962 /* Cannon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +84,17 @@
 		5A65256A25BBADEC00FAB962 /* ChessModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A65257125BBADEC00FAB962 /* ChessModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessModelTests.swift; sourceTree = "<group>"; };
 		5A65257325BBADEC00FAB962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A65258225BBB18500FAB962 /* Array2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		5A65258625BBB2A800FAB962 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		5A65258A25BBB35400FAB962 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		5A65259025BBB4DA00FAB962 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		5A65259425BBBBAF00FAB962 /* King.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = King.swift; sourceTree = "<group>"; };
+		5A65259825BBCC3100FAB962 /* Advisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advisor.swift; sourceTree = "<group>"; };
+		5A65259C25BBCFEA00FAB962 /* Elephant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elephant.swift; sourceTree = "<group>"; };
+		5A6525A025BBD2BC00FAB962 /* Horse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horse.swift; sourceTree = "<group>"; };
+		5A6525A425BBD47800FAB962 /* Chariot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chariot.swift; sourceTree = "<group>"; };
+		5A6525A825BBD7EE00FAB962 /* Soldier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soldier.swift; sourceTree = "<group>"; };
+		5A6525AC25BBDC9200FAB962 /* Cannon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cannon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +163,17 @@
 			children = (
 				5A65256425BBADEC00FAB962 /* ChessModel.h */,
 				5A65256525BBADEC00FAB962 /* Info.plist */,
+				5A65258225BBB18500FAB962 /* Array2D.swift */,
+				5A65258625BBB2A800FAB962 /* Piece.swift */,
+				5A65259825BBCC3100FAB962 /* Advisor.swift */,
+				5A65259C25BBCFEA00FAB962 /* Elephant.swift */,
+				5A65259425BBBBAF00FAB962 /* King.swift */,
+				5A6525A025BBD2BC00FAB962 /* Horse.swift */,
+				5A6525A425BBD47800FAB962 /* Chariot.swift */,
+				5A6525A825BBD7EE00FAB962 /* Soldier.swift */,
+				5A6525AC25BBDC9200FAB962 /* Cannon.swift */,
+				5A65258A25BBB35400FAB962 /* Game.swift */,
+				5A65259025BBB4DA00FAB962 /* Move.swift */,
 			);
 			path = ChessModel;
 			sourceTree = "<group>";
@@ -238,6 +271,7 @@
 					};
 					5A65256125BBADEC00FAB962 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 					5A65256925BBADEC00FAB962 = {
 						CreatedOnToolsVersion = 12.1;
@@ -307,6 +341,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A65259125BBB4DA00FAB962 /* Move.swift in Sources */,
+				5A65258725BBB2A800FAB962 /* Piece.swift in Sources */,
+				5A65258325BBB18500FAB962 /* Array2D.swift in Sources */,
+				5A65258B25BBB35400FAB962 /* Game.swift in Sources */,
+				5A65259925BBCC3100FAB962 /* Advisor.swift in Sources */,
+				5A65259D25BBCFEA00FAB962 /* Elephant.swift in Sources */,
+				5A6525A925BBD7EE00FAB962 /* Soldier.swift in Sources */,
+				5A65259525BBBBAF00FAB962 /* King.swift in Sources */,
+				5A6525A525BBD47800FAB962 /* Chariot.swift in Sources */,
+				5A6525AD25BBDC9200FAB962 /* Cannon.swift in Sources */,
+				5A6525A125BBD2BC00FAB962 /* Horse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +522,7 @@
 		5A65255A25BBAC5200FAB962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -496,6 +542,7 @@
 		5A65255B25BBAC5200FAB962 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -515,6 +562,7 @@
 		5A65257A25BBADEC00FAB962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -532,6 +580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.sweeper777.ChessModel;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -542,6 +591,7 @@
 		5A65257B25BBADEC00FAB962 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
