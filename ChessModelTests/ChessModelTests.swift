@@ -85,6 +85,16 @@ class ChessModelTests: XCTestCase {
         XCTAssertThrowsError(try game.makeMove(Move(from: Position(2, 7), to: Position(3, 5))))
     }
     
+    func testChariotMoves() throws {
+        let game = Game()
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(0, 9), to: Position(0, 7))))
+        let pieceAtDestination = game.piece(at: Position(0, 7))
+        XCTAssertTrue(pieceAtDestination is Chariot, "Piece at (0, 7) is \(pieceAtDestination?.description ?? "nil"), expected Chariot")
+        
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(0, 0), to: Position(0, 8))))
+    }
+    
     }
         }
     }
