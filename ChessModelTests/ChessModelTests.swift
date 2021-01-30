@@ -138,6 +138,31 @@ class ChessModelTests: XCTestCase {
         
     }
     
+    func testCannonCaptures() throws {
+        let game = Game()
+        
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(1, 7), to: Position(1, 0))))
+        var pieceAtDestination = game.piece(at: Position(1, 0))
+        XCTAssertTrue(pieceAtDestination is Cannon, "Piece at (1, 0) is \(pieceAtDestination?.description ?? "nil"), expected Cannon")
+        
+        game.board = Array2D(columns: 9, rows: 10, initialValue: nil)
+        game.board[4, 0] = King(.black)
+        game.board[3, 9] = King(.red)
+        game.board[4, 5] = Cannon(.black)
+        game.board[3, 5] = Soldier(.red)
+        game.board[2, 5] = Chariot(.red)
+        
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(2, 5), to: Position(3, 5))))
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(4, 5), to: Position(2, 5))))
+        pieceAtDestination = game.piece(at: Position(2, 5))
+        XCTAssertTrue(pieceAtDestination is Cannon, "Piece at (2, 5) is \(pieceAtDestination?.description ?? "nil"), expected Cannon")
+        game.board[4, 5] = Soldier(.black)
+        
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(2, 5), to: Position(4, 5))))
+    }
+    
         }
     }
 }
