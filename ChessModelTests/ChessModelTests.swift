@@ -95,6 +95,36 @@ class ChessModelTests: XCTestCase {
         XCTAssertThrowsError(try game.makeMove(Move(from: Position(0, 0), to: Position(0, 8))))
     }
     
+    func testSoldierMoves() throws {
+        let game = Game()
+        
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(2, 6), to: Position(1, 6))))
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(2, 6), to: Position(2, 7))))
+        
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(2, 6), to: Position(2, 5))))
+        var pieceAtDestination = game.piece(at: Position(2, 5))
+        XCTAssertTrue(pieceAtDestination is Soldier, "Piece at (2, 5) is \(pieceAtDestination?.description ?? "nil"), expected Soldier")
+        
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(2, 3), to: Position(1, 3))))
+        XCTAssertThrowsError(try game.makeMove(Move(from: Position(2, 3), to: Position(2, 2))))
+        
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(2, 3), to: Position(2, 4))))
+        pieceAtDestination = game.piece(at: Position(2, 4))
+        XCTAssertTrue(pieceAtDestination is Soldier, "Piece at (2, 4) is \(pieceAtDestination?.description ?? "nil"), expected Soldier")
+        
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(2, 5), to: Position(2, 4))))
+        pieceAtDestination = game.piece(at: Position(2, 4))
+        XCTAssertTrue(pieceAtDestination is Soldier, "Piece at (2, 4) is \(pieceAtDestination?.description ?? "nil"), expected Soldier")
+        
+        game.currentPlayer = .red
+        
+        XCTAssertEqual(MoveResult.success,
+                       try game.makeMove(Move(from: Position(2, 4), to: Position(1, 4))))
+        pieceAtDestination = game.piece(at: Position(1, 4))
+        XCTAssertTrue(pieceAtDestination is Soldier, "Piece at (1, 4) is \(pieceAtDestination?.description ?? "nil"), expected Soldier")
     }
         }
     }
