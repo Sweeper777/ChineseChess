@@ -24,6 +24,13 @@ class ChessBoardView: UIView {
             }
         }
 
+        func drawRiver() {
+            let river = UIBezierPath(rect: CGRect(
+                    x: 0, y: 4 * squareSize, width: 8 * squareSize, height: squareSize
+            ))
+            path.append(river)
+        }
+
     }
 }
 
