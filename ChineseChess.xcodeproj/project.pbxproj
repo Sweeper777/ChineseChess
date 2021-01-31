@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CD57B2503CB9D0D2FEAA613 /* Pods_ChessModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9851D41B5CB111B8B7BC19C0 /* Pods_ChessModel.framework */; };
+		25EF0480B155B6E046435B9D /* FENFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF090C1CC529BF4B5FA0E5 /* FENFormat.swift */; };
+		25EF0E3D7A45A63C2AEA365E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF00D78B34082458745835 /* Helpers.swift */; };
+		3C9472826127E7FAFEFEC10A /* Pods_ChineseChess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9E6E8A88ACEF5EEA5519B /* Pods_ChineseChess.framework */; };
+		5A607B5F25C4F32900A7A2FF /* ChessBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A607B5E25C4F32900A7A2FF /* ChessBoardView.swift */; };
+		5A607B7D25C528CA00A7A2FF /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF0FE8963830FD378654ED /* Board.swift */; };
 		5A65254925BBAC5000FAB962 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65254825BBAC5000FAB962 /* AppDelegate.swift */; };
 		5A65254B25BBAC5000FAB962 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65254A25BBAC5000FAB962 /* SceneDelegate.swift */; };
 		5A65254D25BBAC5000FAB962 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A65254C25BBAC5000FAB962 /* ViewController.swift */; };
@@ -29,6 +35,7 @@
 		5A6525A525BBD47800FAB962 /* Chariot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6525A425BBD47800FAB962 /* Chariot.swift */; };
 		5A6525A925BBD7EE00FAB962 /* Soldier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6525A825BBD7EE00FAB962 /* Soldier.swift */; };
 		5A6525AD25BBDC9200FAB962 /* Cannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6525AC25BBDC9200FAB962 /* Cannon.swift */; };
+		B7AE27F4BC6FCE7F325C0BB0 /* Pods_ChessModel_ChessModelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9CA7CB7C8A074AFABBFAAA /* Pods_ChessModel_ChessModelTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +77,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		139C9777D556B2155D43D91D /* Pods-ChessModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessModel.release.xcconfig"; path = "Target Support Files/Pods-ChessModel/Pods-ChessModel.release.xcconfig"; sourceTree = "<group>"; };
+		25EF00D78B34082458745835 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		25EF090C1CC529BF4B5FA0E5 /* FENFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FENFormat.swift; sourceTree = "<group>"; };
+		25EF0FE8963830FD378654ED /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		2614648B8F4ACBBA464D94F5 /* Pods-ChineseChess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseChess.release.xcconfig"; path = "Target Support Files/Pods-ChineseChess/Pods-ChineseChess.release.xcconfig"; sourceTree = "<group>"; };
+		508DAB953635B909C3451867 /* Pods-ChineseChess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseChess.debug.xcconfig"; path = "Target Support Files/Pods-ChineseChess/Pods-ChineseChess.debug.xcconfig"; sourceTree = "<group>"; };
+		5A607B5E25C4F32900A7A2FF /* ChessBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessBoardView.swift; sourceTree = "<group>"; };
 		5A65254525BBAC5000FAB962 /* ChineseChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChineseChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A65254825BBAC5000FAB962 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A65254A25BBAC5000FAB962 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +109,12 @@
 		5A6525A425BBD47800FAB962 /* Chariot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chariot.swift; sourceTree = "<group>"; };
 		5A6525A825BBD7EE00FAB962 /* Soldier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soldier.swift; sourceTree = "<group>"; };
 		5A6525AC25BBDC9200FAB962 /* Cannon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cannon.swift; sourceTree = "<group>"; };
+		93A9E6E8A88ACEF5EEA5519B /* Pods_ChineseChess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChineseChess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9851D41B5CB111B8B7BC19C0 /* Pods_ChessModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3B20EC80150FEC1E461F082 /* Pods-ChessModel-ChessModelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessModel-ChessModelTests.debug.xcconfig"; path = "Target Support Files/Pods-ChessModel-ChessModelTests/Pods-ChessModel-ChessModelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE9CA7CB7C8A074AFABBFAAA /* Pods_ChessModel_ChessModelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessModel_ChessModelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF673DE788EA6500FF6A8D92 /* Pods-ChessModel-ChessModelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessModel-ChessModelTests.release.xcconfig"; path = "Target Support Files/Pods-ChessModel-ChessModelTests/Pods-ChessModel-ChessModelTests.release.xcconfig"; sourceTree = "<group>"; };
+		DBC3C40162C12A3019EC28C0 /* Pods-ChessModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessModel.debug.xcconfig"; path = "Target Support Files/Pods-ChessModel/Pods-ChessModel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A65257725BBADEC00FAB962 /* ChessModel.framework in Frameworks */,
+				3C9472826127E7FAFEFEC10A /* Pods_ChineseChess.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CD57B2503CB9D0D2FEAA613 /* Pods_ChessModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,12 +140,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A65256B25BBADEC00FAB962 /* ChessModel.framework in Frameworks */,
+				B7AE27F4BC6FCE7F325C0BB0 /* Pods_ChessModel_ChessModelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		425EF154D19FBD57468EEFB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBC3C40162C12A3019EC28C0 /* Pods-ChessModel.debug.xcconfig */,
+				139C9777D556B2155D43D91D /* Pods-ChessModel.release.xcconfig */,
+				A3B20EC80150FEC1E461F082 /* Pods-ChessModel-ChessModelTests.debug.xcconfig */,
+				CF673DE788EA6500FF6A8D92 /* Pods-ChessModel-ChessModelTests.release.xcconfig */,
+				508DAB953635B909C3451867 /* Pods-ChineseChess.debug.xcconfig */,
+				2614648B8F4ACBBA464D94F5 /* Pods-ChineseChess.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		507944A8B5FEA06EAAE081DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9851D41B5CB111B8B7BC19C0 /* Pods_ChessModel.framework */,
+				AE9CA7CB7C8A074AFABBFAAA /* Pods_ChessModel_ChessModelTests.framework */,
+				93A9E6E8A88ACEF5EEA5519B /* Pods_ChineseChess.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5A65253C25BBAC4F00FAB962 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +177,8 @@
 				5A65256325BBADEC00FAB962 /* ChessModel */,
 				5A65257025BBADEC00FAB962 /* ChessModelTests */,
 				5A65254625BBAC5000FAB962 /* Products */,
+				425EF154D19FBD57468EEFB8 /* Pods */,
+				507944A8B5FEA06EAAE081DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,10 +198,13 @@
 				5A65254825BBAC5000FAB962 /* AppDelegate.swift */,
 				5A65254A25BBAC5000FAB962 /* SceneDelegate.swift */,
 				5A65254C25BBAC5000FAB962 /* ViewController.swift */,
+				5A607B5E25C4F32900A7A2FF /* ChessBoardView.swift */,
 				5A65254E25BBAC5000FAB962 /* Main.storyboard */,
 				5A65255125BBAC5200FAB962 /* Assets.xcassets */,
 				5A65255325BBAC5200FAB962 /* LaunchScreen.storyboard */,
 				5A65255625BBAC5200FAB962 /* Info.plist */,
+				25EF00D78B34082458745835 /* Helpers.swift */,
+				25EF090C1CC529BF4B5FA0E5 /* FENFormat.swift */,
 			);
 			path = ChineseChess;
 			sourceTree = "<group>";
@@ -174,6 +225,7 @@
 				5A6525AC25BBDC9200FAB962 /* Cannon.swift */,
 				5A65258A25BBB35400FAB962 /* Game.swift */,
 				5A65259025BBB4DA00FAB962 /* Move.swift */,
+				25EF0FE8963830FD378654ED /* Board.swift */,
 			);
 			path = ChessModel;
 			sourceTree = "<group>";
@@ -205,10 +257,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A65255925BBAC5200FAB962 /* Build configuration list for PBXNativeTarget "ChineseChess" */;
 			buildPhases = (
+				D850E74D968D45E017D7D976 /* [CP] Check Pods Manifest.lock */,
 				5A65254125BBAC5000FAB962 /* Sources */,
 				5A65254225BBAC5000FAB962 /* Frameworks */,
 				5A65254325BBAC5000FAB962 /* Resources */,
 				5A65257C25BBADEC00FAB962 /* Embed Frameworks */,
+				6B6E802D7FE5460D8071940E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +278,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A65257925BBADEC00FAB962 /* Build configuration list for PBXNativeTarget "ChessModel" */;
 			buildPhases = (
+				D5372C630CEB7A139F1D5D0F /* [CP] Check Pods Manifest.lock */,
 				5A65255D25BBADEC00FAB962 /* Headers */,
 				5A65255E25BBADEC00FAB962 /* Sources */,
 				5A65255F25BBADEC00FAB962 /* Frameworks */,
@@ -242,6 +297,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A65257D25BBADEC00FAB962 /* Build configuration list for PBXNativeTarget "ChessModelTests" */;
 			buildPhases = (
+				1DE398879213571327316114 /* [CP] Check Pods Manifest.lock */,
 				5A65256625BBADEC00FAB962 /* Sources */,
 				5A65256725BBADEC00FAB962 /* Frameworks */,
 				5A65256825BBADEC00FAB962 /* Resources */,
@@ -326,14 +382,103 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1DE398879213571327316114 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChessModel-ChessModelTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B6E802D7FE5460D8071940E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChineseChess/Pods-ChineseChess-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChineseChess/Pods-ChineseChess-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChineseChess/Pods-ChineseChess-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5372C630CEB7A139F1D5D0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChessModel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D850E74D968D45E017D7D976 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChineseChess-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5A65254125BBAC5000FAB962 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A607B5F25C4F32900A7A2FF /* ChessBoardView.swift in Sources */,
 				5A65254D25BBAC5000FAB962 /* ViewController.swift in Sources */,
 				5A65254925BBAC5000FAB962 /* AppDelegate.swift in Sources */,
 				5A65254B25BBAC5000FAB962 /* SceneDelegate.swift in Sources */,
+				25EF0E3D7A45A63C2AEA365E /* Helpers.swift in Sources */,
+				25EF0480B155B6E046435B9D /* FENFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +488,7 @@
 			files = (
 				5A65259125BBB4DA00FAB962 /* Move.swift in Sources */,
 				5A65258725BBB2A800FAB962 /* Piece.swift in Sources */,
+				5A607B7D25C528CA00A7A2FF /* Board.swift in Sources */,
 				5A65258325BBB18500FAB962 /* Array2D.swift in Sources */,
 				5A65258B25BBB35400FAB962 /* Game.swift in Sources */,
 				5A65259925BBCC3100FAB962 /* Advisor.swift in Sources */,
@@ -521,6 +667,7 @@
 		};
 		5A65255A25BBAC5200FAB962 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 508DAB953635B909C3451867 /* Pods-ChineseChess.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -541,6 +688,7 @@
 		};
 		5A65255B25BBAC5200FAB962 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2614648B8F4ACBBA464D94F5 /* Pods-ChineseChess.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -561,6 +709,7 @@
 		};
 		5A65257A25BBADEC00FAB962 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBC3C40162C12A3019EC28C0 /* Pods-ChessModel.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -590,6 +739,7 @@
 		};
 		5A65257B25BBADEC00FAB962 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 139C9777D556B2155D43D91D /* Pods-ChessModel.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -618,6 +768,7 @@
 		};
 		5A65257E25BBADEC00FAB962 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3B20EC80150FEC1E461F082 /* Pods-ChessModel-ChessModelTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -638,6 +789,7 @@
 		};
 		5A65257F25BBADEC00FAB962 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF673DE788EA6500FF6A8D92 /* Pods-ChessModel-ChessModelTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
