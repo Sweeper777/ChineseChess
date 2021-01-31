@@ -1,0 +1,20 @@
+PODS:
+  - SnapKit (5.0.1)
+  - SwiftyUtils (5.2.0)
+
+DEPENDENCIES:
+  - SnapKit
+  - SwiftyUtils
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+    - SwiftyUtils
+
+SPEC CHECKSUMS:
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyUtils: 4c99e810e769063dbd5d4e83b486961a5d470aeb
+
+PODFILE CHECKSUM: d964bd06085e47e98b9444a2c59a9b41bbd1b90a
+
+COCOAPODS: 1.10.0.rc.1
