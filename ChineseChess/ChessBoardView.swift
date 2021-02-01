@@ -31,6 +31,20 @@ class ChessBoardView: UIView {
             path.append(river)
         }
 
+        func drawRedSide() {
+            for x in 0..<8 {
+                for y in 5..<9 {
+                    let square = UIBezierPath(rect: CGRect(
+                            x: x.f * squareSize,
+                            y: y.f * squareSize,
+                            width: squareSize,
+                            height: squareSize
+                    ))
+                    path.append(square)
+                }
+            }
+        }
+
     }
 }
 
