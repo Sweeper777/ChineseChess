@@ -45,6 +45,22 @@ class ChessBoardView: UIView {
             }
         }
 
+        func drawPalaces() {
+            let palaces = UIBezierPath()
+
+            palaces.move(to: CGPoint(x: 3 * squareSize, y: 0))
+            palaces.addLine(to: CGPoint(x: 5 * squareSize, y: 2 * squareSize))
+            palaces.move(to: CGPoint(x: 5 * squareSize, y: 0))
+            palaces.addLine(to: CGPoint(x: 3 * squareSize, y: 2 * squareSize))
+
+            palaces.move(to: CGPoint(x: 3 * squareSize, y: 7 * squareSize))
+            palaces.addLine(to: CGPoint(x: 5 * squareSize, y: 9 * squareSize))
+            palaces.move(to: CGPoint(x: 5 * squareSize, y: 7 * squareSize))
+            palaces.addLine(to: CGPoint(x: 3 * squareSize, y: 9 * squareSize))
+
+            path.append(palaces)
+        }
+        
     }
 }
 
