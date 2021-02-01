@@ -92,6 +92,17 @@ class ChessBoardView: UIView {
             return path
         }
 
+        func drawMarkings() {
+            path.append(drawMarkingAt(x: 1, y: 2))
+            path.append(drawMarkingAt(x: 7, y: 2))
+            path.append(drawMarkingAt(x: 1, y: 7))
+            path.append(drawMarkingAt(x: 7, y: 7))
+            for x in stride(from: 0, through: 8, by: 2) {
+                path.append(drawMarkingAt(x: x, y: 3))
+                path.append(drawMarkingAt(x: x, y: 6))
+            }
+        }
+
     }
 }
 
