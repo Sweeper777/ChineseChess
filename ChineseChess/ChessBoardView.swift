@@ -103,6 +103,17 @@ class ChessBoardView: UIView {
             }
         }
 
+        drawBlackSide()
+        drawRedSide()
+        drawRiver()
+        drawPalaces()
+        drawMarkings()
+        
+        path.apply(CGAffineTransform(translationX: squareSize / 2, y: squareSize / 2))
+        path.lineWidth = strokeWidth
+        UIColor.black.setStroke()
+        path.stroke()
+
     }
 }
 
