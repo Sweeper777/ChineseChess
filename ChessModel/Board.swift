@@ -14,3 +14,14 @@ public extension Board {
     }
 }
 
+public class ConstantBoard : Board {
+    private let pieceDict: [Position: Piece]
+
+    public init(dictionary: [Position: Piece]) {
+        pieceDict = dictionary
+    }
+
+    public func piece(at position: Position) -> Piece? {
+        pieceDict[position]
+    }
+}
