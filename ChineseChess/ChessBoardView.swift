@@ -130,6 +130,32 @@ class ChessBoardView: UIView {
             )
         }
 
+        func center(forPosition position: Position) -> CGPoint {
+            CGPoint(
+                    x: position.x.f * squareSize,
+                    y: position.y.f * squareSize
+            ).applying(CGAffineTransform(translationX: squareSize / 2, y: squareSize / 2))
+        }
+
+        func drawChessPiece(_ piece: Piece, at position: Position, font: UIFont, offset: CGPoint) {
+            let pieceName = piece.localisedDescription
+            let foregroundColor = piece.player == .red ? UIColor.red : UIColor.black
+            let centerOfPiece = center(forPosition: position)
+            let circlePath = UIBezierPath(
+                    ovalIn: CGRect(origin: centerOfPiece, size: .zero)
+                            .insetBy(dx: -squareSize * 0.4, dy: -squareSize * 0.4)
+            )
+            circlePath.lineWidth = strokeWidth * 2
+            UIColor.black.setStroke()
+            UIColor.white.setFill()
+            circlePath.fill()
+            circlePath.stroke()
+
+            (pieceName as NSString).draw(at: CGPoint(
+                    x: position.x.f * squareSize + offset.x,
+                    y: position.y.f * squareSize + offset.y
+            ), withAttributes: [.font: font, .foregroundColor: foregroundColor])
+        }
     }
 }
 
