@@ -78,7 +78,7 @@ class Elephant : Piece {
                 endPositions.append(Position(position.x + dxDy.dx * 2, position.y + dxDy.dy * 2))
             }
         }
-        return endPositions.map { Move(from: position, to: $0) }
+        return endPositions.filter { yBeforeRiver.contains($0.y) }.map { Move(from: position, to: $0) }
     }
     
     init(_ player: Player) {
