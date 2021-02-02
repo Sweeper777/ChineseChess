@@ -14,8 +14,8 @@ class Soldier : Piece {
             return "卒"
         }
     }
-    
-    func validateMove(_ move: Move, in board: Array2D<Piece?>) -> MoveError? {
+
+    func validateMove(_ move: Move, in board: Board) -> MoveError? {
         let yBeforeRiver: ClosedRange<Int>
         switch player {
         case .red:
@@ -35,7 +35,7 @@ class Soldier : Piece {
         return .invalidPosition
     }
     
-    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+    func allMoves(from position: Position, in board: Board) -> [Move] {
         var endPositions = [Position]()
         let yBeforeRiver: ClosedRange<Int>
         switch player {

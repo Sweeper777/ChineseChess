@@ -15,7 +15,7 @@ class Advisor : Piece {
         }
     }
     
-    func validateMove(_ move: Move, in board: Array2D<Piece?>) -> MoveError? {
+    func validateMove(_ move: Move, in board: Board) -> MoveError? {
         let possibleEndLocations: [Position]
         switch player {
         case .black:
@@ -47,7 +47,7 @@ class Advisor : Piece {
         return nil
     }
     
-    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+    func allMoves(from position: Position, in board: Board) -> [Move] {
         let xRange = 3...5
         let yRange: ClosedRange<Int>
         switch player {

@@ -15,7 +15,7 @@ class Horse : Piece {
         }
     }
     
-    func validateMove(_ move: Move, in board: Array2D<Piece?>) -> MoveError? {
+    func validateMove(_ move: Move, in board: Board) -> MoveError? {
         if abs(move.dx) == 2 {
             guard abs(move.dy) == 1 else {
                 return .invalidPosition
@@ -49,7 +49,7 @@ class Horse : Piece {
         }
     }
     
-    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+    func allMoves(from position: Position, in board: Board) -> [Move] {
         var endPositions = [Position]()
         let above = position.above()
         if (board[safe: above] as? Piece) == nil {

@@ -5,12 +5,12 @@ public protocol Piece : CustomStringConvertible {
     /// precondition:
     /// - all positions are in range
     /// - move.to has a piece of the opposing player, or is empty
-    /// does not guarentee validation of king in check after the move
-    func validateMove(_ move: Move, in board: Array2D<Piece?>) -> MoveError?
+    /// does not guarantee validation of king in check after the move
+    func validateMove(_ move: Move, in board: Board) -> MoveError?
     
     /// postcondition:
     /// - move.from == position
-    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move]
+    func allMoves(from position: Position, in board: Board) -> [Move]
     
 }
 

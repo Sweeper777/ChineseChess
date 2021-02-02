@@ -15,7 +15,7 @@ class Chariot : Piece {
         }
     }
     
-    func validateMove(_ move: Move, in board: Array2D<Piece?>) -> MoveError? {
+    func validateMove(_ move: Move, in board: Board) -> MoveError? {
         if abs(move.dx) > 0 && abs(move.dy) > 0 {
             return .invalidPosition
         }
@@ -41,7 +41,7 @@ class Chariot : Piece {
         }
     }
     
-    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+    func allMoves(from position: Position, in board: Board) -> [Move] {
         func isValid(_ position: Position) -> Bool {
             if let piece = board[safe: position] {
                 return piece == nil

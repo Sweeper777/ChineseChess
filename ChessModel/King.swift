@@ -15,7 +15,7 @@ class King : Piece {
         }
     }
     
-    func validateMove(_ move: Move, in board: Array2D<Piece?>) -> MoveError? {
+    func validateMove(_ move: Move, in board: Board) -> MoveError? {
         if move.dx == 0 && (board[move.to] as? King)?.player == self.player.opponent {
             let startY = min(move.from.y, move.to.y)
             let endY = max(move.from.y, move.to.y)
@@ -44,7 +44,7 @@ class King : Piece {
         return nil
     }
     
-    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+    func allMoves(from position: Position, in board: Board) -> [Move] {
         func isValid(_ position: Position) -> Bool {
             if let piece = board[safe: position] {
                 return piece == nil

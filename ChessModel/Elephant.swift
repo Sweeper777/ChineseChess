@@ -15,7 +15,7 @@ class Elephant : Piece {
         }
     }
     
-    func validateMove(_ move: Move, in board: Array2D<Piece?>) -> MoveError? {
+    func validateMove(_ move: Move, in board: Board) -> MoveError? {
         let possibleEndLocations: [Position]
         switch player {
         case .black:
@@ -56,7 +56,7 @@ class Elephant : Piece {
         return nil
     }
     
-    func allMoves(from position: Position, in board: Array2D<Piece?>) -> [Move] {
+    func allMoves(from position: Position, in board: Board) -> [Move] {
         let yBeforeRiver: ClosedRange<Int>
         switch player {
         case .red:
