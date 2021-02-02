@@ -114,6 +114,22 @@ class ChessBoardView: UIView {
         UIColor.black.setStroke()
         path.stroke()
 
+        func calculateFontSize() -> CGFloat {
+            fontSizeThatFits(
+                    size: CGSize(width: squareSize / 2,
+                    height: squareSize / 2), text: "将",
+                    font: UIFont.systemFont(ofSize: 1)
+            )
+        }
+
+        func calculateOffset(withFont font: UIFont) -> CGPoint {
+            let sizeWithFont = ("将" as NSString).size(withAttributes: [.font: font])
+            return CGPoint(
+                    x: (squareSize - sizeWithFont.width) / 2,
+                    y: (squareSize - sizeWithFont.height) / 2
+            )
+        }
+
     }
 }
 
