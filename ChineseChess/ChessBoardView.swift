@@ -174,6 +174,24 @@ class ChessBoardView: UIView {
                     y: position.y.f * squareSize + offset.y
             ), withAttributes: [.font: font, .foregroundColor: foregroundColor])
         }
+
+        let fontSize = calculateFontSize()
+        let font = UIFont.systemFont(ofSize: fontSize)
+        let offset = calculateOffset(withFont: font)
+
+        guard let board = board else {
+            return
+        }
+
+        for x in 0..<9 {
+            for y in 0..<10 {
+                let pos = Position(x, y)
+                if let piece = board.piece(at: pos) {
+                    drawChessPiece(piece, at: pos, font: font, offset: offset)
+                }
+            }
+        }
+
     }
 }
 
