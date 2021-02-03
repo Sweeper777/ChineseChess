@@ -4,6 +4,24 @@ import SwiftyUtils
 
 class ChessBoardView: UIView {
 
+    var board: Board? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    // TODO: draw selected pieces differently
+    var selectedPosition: Position? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    var selectablePositions: [Position] = [] {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     override func draw(_ rect: CGRect) {
         let squareSize = width / 9
