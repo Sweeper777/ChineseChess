@@ -1,4 +1,4 @@
-public class Game {
+public class Game : Board{
     var board = Array2D<Piece?>(columns: 9, rows: 10, initialValue: nil)
     public var currentPlayer = Player.red
     public var opposingPlayer: Player {
@@ -22,7 +22,7 @@ public class Game {
     }
     
     public func piece(at position: Position) -> Piece? {
-        board[position]
+        board[safe: position] as? Piece
     }
     
     public init() {
@@ -86,7 +86,7 @@ public class Game {
         }
     }
     
-    func validateMove(_ move: Move) throws {
+    public func validateMove(_ move: Move) throws {
         
         let movingPiece = try validateMoveRangeAndDestination(move: move)
         
