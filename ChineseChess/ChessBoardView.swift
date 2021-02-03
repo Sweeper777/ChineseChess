@@ -192,6 +192,17 @@ class ChessBoardView: UIView {
             }
         }
 
+        func drawSelectablePositions() {
+            for pos in selectablePositions {
+                let dotRect = CGRect(origin: center(forPosition: pos), size: .zero)
+                                .insetBy(dx: -squareSize / 5, dy: -squareSize / 5)
+                let path = UIBezierPath(ovalIn: dotRect)
+                UIColor.black.setFill()
+                path.fill()
+            }
+        }
+
+        drawSelectablePositions()
     }
 }
 
