@@ -22,6 +22,8 @@ class ChessBoardView: UIView {
             setNeedsDisplay()
         }
     }
+
+    weak var delegate: ChessBoardViewDelegate?
     
     override func draw(_ rect: CGRect) {
         let squareSize = width / 9
@@ -206,3 +208,6 @@ class ChessBoardView: UIView {
     }
 }
 
+protocol ChessBoardViewDelegate : class {
+    func didTapPosition(_ position: Position)
+}
