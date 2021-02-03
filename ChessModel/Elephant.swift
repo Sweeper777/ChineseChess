@@ -74,7 +74,7 @@ class Elephant : Piece {
         var endPositions = [Position]()
         for dxDy in dxDys {
             let eyePos = Position(position.x + dxDy.dx, position.y + dxDy.dy)
-            if (board[safe: eyePos] as? Piece) == nil {
+            if board[eyePos] == nil {
                 endPositions.append(Position(position.x + dxDy.dx * 2, position.y + dxDy.dy * 2))
             }
         }

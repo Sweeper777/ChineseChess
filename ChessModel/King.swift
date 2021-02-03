@@ -46,8 +46,8 @@ class King : Piece {
     
     func allMoves(from position: Position, in board: Board) -> [Move] {
         func isValid(_ position: Position) -> Bool {
-            if let piece = board[safe: position] {
-                return piece == nil
+            if (0..<9).contains(position.x) && (0..<10).contains(position.y) {
+                return board[position] == nil
             } else {
                 return false
             }
@@ -77,7 +77,7 @@ class King : Piece {
             while isValid(currentPos) {
                 currentPos = directionFunc(currentPos)
             }
-            let pieceFound = board[safe: currentPos] as? Piece
+            let pieceFound = board[currentPos]
             if pieceFound?.player == self.player.opponent &&
                 pieceFound is King {
                 endPositions.append(currentPos)

@@ -52,22 +52,22 @@ class Horse : Piece {
     func allMoves(from position: Position, in board: Board) -> [Move] {
         var endPositions = [Position]()
         let above = position.above()
-        if (board[safe: above] as? Piece) == nil {
+        if board[above] == nil {
             endPositions.append(above.above().left())
             endPositions.append(above.above().right())
         }
         let below = position.below()
-        if (board[safe: below] as? Piece) == nil {
+        if board[below] == nil {
             endPositions.append(below.below().left())
             endPositions.append(below.below().right())
         }
         let left = position.left()
-        if (board[safe: left] as? Piece) == nil {
+        if board[left] == nil {
             endPositions.append(left.left().above())
             endPositions.append(left.left().below())
         }
         let right = position.right()
-        if (board[safe: right] as? Piece) == nil {
+        if board[right] == nil {
             endPositions.append(right.right().above())
             endPositions.append(right.right().below())
         }

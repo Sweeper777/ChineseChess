@@ -46,8 +46,8 @@ class Cannon : Piece {
     
     func allMoves(from position: Position, in board: Board) -> [Move] {
         func isValid(_ position: Position) -> Bool {
-            if let piece = board[safe: position] {
-                return piece == nil
+            if (0..<9).contains(position.x) && (0..<10).contains(position.y) {
+                return board[position] == nil
             } else {
                 return false
             }
@@ -67,7 +67,7 @@ class Cannon : Piece {
             while isValid(currentPos) {
                 currentPos = directionFunc(currentPos)
             }
-            if (board[safe: currentPos] as? Piece)?.player == self.player.opponent {
+            if board[currentPos]?.player == self.player.opponent {
                 endPositions.append(currentPos)
             }
         }
