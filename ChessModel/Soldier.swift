@@ -15,6 +15,15 @@ class Soldier : Piece {
         }
     }
 
+    var abbreviation: String {
+        switch player {
+        case .red:
+            return "P"
+        case .black:
+            return "p"
+        }
+    }
+
     func validateMove(_ move: Move, in board: Board) -> MoveError? {
         let yBeforeRiver: ClosedRange<Int>
         switch player {

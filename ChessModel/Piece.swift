@@ -1,6 +1,7 @@
 public protocol Piece : CustomStringConvertible {
     var player: Player { get }
     var localisedDescription: String { get }
+    var abbreviation: String { get }
     
     /// precondition:
     /// - all positions are in range

@@ -14,6 +14,15 @@ class Chariot : Piece {
             return "車"
         }
     }
+
+    var abbreviation: String {
+        switch player {
+        case .red:
+            return "R"
+        case .black:
+            return "r"
+        }
+    }
     
     func validateMove(_ move: Move, in board: Board) -> MoveError? {
         if abs(move.dx) > 0 && abs(move.dy) > 0 {

@@ -14,6 +14,15 @@ class King : Piece {
             return "將"
         }
     }
+
+    var abbreviation: String {
+        switch player {
+        case .red:
+            return "K"
+        case .black:
+            return "k"
+        }
+    }
     
     func validateMove(_ move: Move, in board: Board) -> MoveError? {
         if move.dx == 0 && (board[move.to] as? King)?.player == self.player.opponent {

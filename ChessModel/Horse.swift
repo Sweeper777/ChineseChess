@@ -14,6 +14,15 @@ class Horse : Piece {
             return "馬"
         }
     }
+
+    var abbreviation: String {
+        switch player {
+        case .red:
+            return "N"
+        case .black:
+            return "n"
+        }
+    }
     
     func validateMove(_ move: Move, in board: Board) -> MoveError? {
         if abs(move.dx) == 2 {

@@ -14,6 +14,15 @@ class Elephant : Piece {
             return "象"
         }
     }
+
+    var abbreviation: String {
+        switch player {
+        case .red:
+            return "B"
+        case .black:
+            return "b"
+        }
+    }
     
     func validateMove(_ move: Move, in board: Board) -> MoveError? {
         let possibleEndLocations: [Position]

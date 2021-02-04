@@ -14,6 +14,15 @@ class Advisor : Piece {
             return "士"
         }
     }
+
+    var abbreviation: String {
+        switch player {
+        case .red:
+            return "A"
+        case .black:
+            return "a"
+        }
+    }
     
     func validateMove(_ move: Move, in board: Board) -> MoveError? {
         let possibleEndLocations: [Position]

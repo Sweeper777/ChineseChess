@@ -14,6 +14,15 @@ class Cannon : Piece {
             return "砲"
         }
     }
+
+    var abbreviation: String {
+        switch player {
+        case .red:
+            return "C"
+        case .black:
+            return "c"
+        }
+    }
     
     func validateMove(_ move: Move, in board: Board) -> MoveError? {
         if abs(move.dx) > 0 && abs(move.dy) > 0 {
