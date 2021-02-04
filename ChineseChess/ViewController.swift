@@ -25,6 +25,17 @@ extension ViewController : ChessBoardViewDelegate {
                             .filter { (try? game.validateMove($0)) != nil }
                             .map(\.to)
         } else if let startPosition = chessBoardView.selectedPosition,
+                  let selectedPiece = game.piece(at: startPosition) {
+            let move = Move(from: startPosition, to: position)
+            do {
+                let moveResult = try game.makeMove(move)
+                chessBoardView.selectedPosition = nil
+                chessBoardView.selectablePositions = []
+                // TODO: visualise moveResult
+            } catch {
+                // TODO: show error message on screen
+                print(error)
+            }
         }
     }
 }
