@@ -13,6 +13,11 @@ public struct Move : Equatable, CustomStringConvertible {
     public var description: String {
         "Move from \(from) to \(to)"
     }
+
+    public init(from: Position, to: Position) {
+        self.from = from
+        self.to = to
+    }
 }
 
 public enum MoveResult {
