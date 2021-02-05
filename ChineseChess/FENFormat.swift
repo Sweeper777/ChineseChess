@@ -58,4 +58,16 @@ extension Move {
         "\(from.iccsString)\(to.iccsString)"
     }
 
+    init?(iccsString: String) {
+        guard iccsString.count == 4 else {
+            return nil
+        }
+        let splitIndex = iccsString.index(iccsString.startIndex, offsetBy: 2)
+        let (fromString, toString) = (iccsString[..<splitIndex], iccsString[splitIndex...])
+        guard let from = Position(iccsString: String(fromString)),
+              let to = Position(iccsString: String(toString)) else {
+            return nil
+        }
+        self.init(from: from, to: to)
+    }
 }
