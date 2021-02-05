@@ -52,3 +52,10 @@ extension Game {
         return "\(rows.joined(separator: "/")) \(playerString)"
     }
 }
+
+extension Move {
+    var iccsString: String {
+        "\(from.iccsString)\(to.iccsString)"
+    }
+
+}
