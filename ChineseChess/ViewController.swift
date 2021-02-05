@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         chessBoardView.board = game
         chessBoardView.delegate = self
 
+        print(game.fenFormatString())
     }
 }
 
