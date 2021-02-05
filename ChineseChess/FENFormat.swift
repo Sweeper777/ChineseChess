@@ -26,3 +26,29 @@ extension Position {
     }
 }
 
+extension Game {
+    func fenFormatString() -> String {
+        var rows = [String]()
+        for y in 0..<10 {
+            var row = ""
+            var emptyCount = 0
+            for x in 0..<9 {
+                if let piece = piece(at: Position(x, y)) {
+                    if emptyCount > 0 {
+                        row += "\(emptyCount)"
+                        emptyCount = 0
+                    }
+                    row += piece.abbreviation
+                } else {
+                    emptyCount += 1
+                }
+            }
+            if emptyCount > 0 {
+                row += "\(emptyCount)"
+            }
+            rows.append(row)
+        }
+        let playerString = currentPlayer == .red ? "w" : "b"
+        return "\(rows.joined(separator: "/")) \(playerString)"
+    }
+}
