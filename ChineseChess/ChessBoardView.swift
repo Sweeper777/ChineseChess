@@ -131,7 +131,7 @@ class ChessBoardView: UIView {
         
         path.apply(CGAffineTransform(translationX: squareSize / 2, y: squareSize / 2))
         path.lineWidth = strokeWidth
-        UIColor.black.setStroke()
+        UIColor.label.setStroke()
         path.stroke()
 
         func calculateFontSize() -> CGFloat {
@@ -159,15 +159,15 @@ class ChessBoardView: UIView {
 
         func drawChessPiece(_ piece: Piece, at position: Position, font: UIFont, offset: CGPoint) {
             let pieceName = piece.localisedDescription
-            let foregroundColor = piece.player == .red ? UIColor.red : UIColor.black
+            let foregroundColor = piece.player == .red ? UIColor.red : UIColor.label
             let centerOfPiece = center(forPosition: position)
             let circlePath = UIBezierPath(
                     ovalIn: CGRect(origin: centerOfPiece, size: .zero)
                             .insetBy(dx: -squareSize * 0.4, dy: -squareSize * 0.4)
             )
-            circlePath.lineWidth = strokeWidth * 2
-            UIColor.black.setStroke()
-            UIColor.white.setFill()
+            circlePath.lineWidth = strokeWidth * 1.2
+            UIColor.label.setStroke()
+            UIColor(named: "pieceBackground")!.setFill()
             circlePath.fill()
             circlePath.stroke()
 
@@ -199,7 +199,7 @@ class ChessBoardView: UIView {
                 let dotRect = CGRect(origin: center(forPosition: pos), size: .zero)
                                 .insetBy(dx: -squareSize / 5, dy: -squareSize / 5)
                 let path = UIBezierPath(ovalIn: dotRect)
-                UIColor.black.setFill()
+                UIColor.label.setFill()
                 path.fill()
             }
         }
