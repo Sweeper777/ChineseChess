@@ -159,7 +159,7 @@ class ChessBoardView: UIView {
 
         func drawChessPiece(_ piece: Piece, at position: Position, font: UIFont, offset: CGPoint) {
             let pieceName = piece.localisedDescription
-            let foregroundColor = piece.player == .red ? UIColor.red : UIColor.label
+            let backgroundColor = piece.player == .red ? UIColor(named: "redPieceBackground")! : UIColor(named: "blackPieceBackground")!
             let centerOfPiece = center(forPosition: position)
             let circlePath = UIBezierPath(
                     ovalIn: CGRect(origin: centerOfPiece, size: .zero)
@@ -167,14 +167,14 @@ class ChessBoardView: UIView {
             )
             circlePath.lineWidth = strokeWidth * 1.2
             UIColor.label.setStroke()
-            UIColor(named: "pieceBackground")!.setFill()
+            backgroundColor.setFill()
             circlePath.fill()
             circlePath.stroke()
 
             (pieceName as NSString).draw(at: CGPoint(
                     x: position.x.f * squareSize + offset.x,
                     y: position.y.f * squareSize + offset.y
-            ), withAttributes: [.font: font, .foregroundColor: foregroundColor])
+            ), withAttributes: [.font: font, .foregroundColor: UIColor.white])
         }
 
         let fontSize = calculateFontSize()
