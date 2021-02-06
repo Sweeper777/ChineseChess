@@ -9,8 +9,7 @@ class ChessBoardView: UIView {
             setNeedsDisplay()
         }
     }
-
-    // TODO: draw selected pieces differently
+    
     var selectedPosition: Position? {
         didSet {
             setNeedsDisplay()
@@ -157,7 +156,7 @@ class ChessBoardView: UIView {
             ).applying(CGAffineTransform(translationX: squareSize / 2, y: squareSize / 2))
         }
 
-        func drawChessPiece(_ piece: Piece, at position: Position, font: UIFont, offset: CGPoint) {
+        func drawChessPiece(_ piece: Piece, at position: Position, font: UIFont, offset: CGPoint, isSelected: Bool) {
             let pieceName = piece.localisedDescription
             let backgroundColor = piece.player == .red ? UIColor(named: "redPieceBackground")! : UIColor(named: "blackPieceBackground")!
             let centerOfPiece = center(forPosition: position)
@@ -166,7 +165,12 @@ class ChessBoardView: UIView {
                             .insetBy(dx: -squareSize * 0.4, dy: -squareSize * 0.4)
             )
             circlePath.lineWidth = strokeWidth * 1.2
-            UIColor.label.setStroke()
+
+            if isSelected {
+                UIColor(named: "selectedBorderColor")!.setStroke()
+            } else {
+                UIColor.label.setStroke()
+            }
             backgroundColor.setFill()
             circlePath.fill()
             circlePath.stroke()
@@ -189,7 +193,7 @@ class ChessBoardView: UIView {
             for y in 0..<10 {
                 let pos = Position(x, y)
                 if let piece = board.piece(at: pos) {
-                    drawChessPiece(piece, at: pos, font: font, offset: offset)
+                    drawChessPiece(piece, at: pos, font: font, offset: offset, isSelected: selectedPosition == pos)
                 }
             }
         }
