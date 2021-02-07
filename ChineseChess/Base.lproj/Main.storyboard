@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,20 +13,41 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChineseChess" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vNA-Nm-i5L" customClass="ChessBoardView" customModule="ChineseChess" customModuleProvider="target">
-                                <rect key="frame" x="16" y="91" width="343" height="382"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vNA-Nm-i5L" customClass="ChessBoardView" customModule="ChineseChess" customModuleProvider="target">
+                                <rect key="frame" x="16" y="103" width="736" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vNA-Nm-i5L" secondAttribute="height" multiplier="9:10" id="QoS-vX-72M"/>
+                                </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqy-SR-JYi">
+                                <rect key="frame" x="363" y="501.5" width="42" height="21"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vNA-Nm-i5L" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="6qK-Fx-LzV"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vNA-Nm-i5L" secondAttribute="trailing" constant="16" id="7Mj-mJ-nGS"/>
+                            <constraint firstItem="Vqy-SR-JYi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="APZ-LX-cul"/>
+                            <constraint firstItem="vNA-Nm-i5L" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" priority="750" constant="16" id="CBZ-Hl-PdS"/>
+                            <constraint firstItem="vNA-Nm-i5L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="J4N-Gd-sGk"/>
+                            <constraint firstItem="vNA-Nm-i5L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ntt-XZ-ZRI"/>
+                            <constraint firstItem="Vqy-SR-JYi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SkF-aR-tXo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vNA-Nm-i5L" secondAttribute="bottom" constant="16" id="Vjj-eF-3Zr"/>
+                            <constraint firstItem="vNA-Nm-i5L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bSE-kZ-QBN"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="chessBoardView" destination="vNA-Nm-i5L" id="m9a-oE-siM"/>
+                        <outlet property="messageLabel" destination="Vqy-SR-JYi" id="L2b-QY-MhC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
