@@ -14,8 +14,18 @@ class ViewController: UIViewController {
         chessBoardView.board = game
         chessBoardView.delegate = self
         messageLabel.layer.borderWidth = 3
+    }
 
-        print(game.fenFormatString())
+
+    func showMessage(_ message: String) {
+        messageLabel.text = message
+        messageLabel.isHidden = false
+        UIView.animate(withDuration: 0.5, delay: 0.5) {
+            self.messageLabel.alpha = 0
+        } completion: { _ in
+            self.messageLabel.isHidden = true
+            self.messageLabel.alpha = 1
+        }
     }
 }
 
