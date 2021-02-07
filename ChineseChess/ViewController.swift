@@ -4,6 +4,7 @@ import ChessModel
 class ViewController: UIViewController {
 
     @IBOutlet var chessBoardView: ChessBoardView!
+    @IBOutlet var messageLabel: UILabel!
 
     let game = Game()
 
@@ -12,6 +13,7 @@ class ViewController: UIViewController {
 
         chessBoardView.board = game
         chessBoardView.delegate = self
+        messageLabel.layer.borderWidth = 3
 
         print(game.fenFormatString())
     }
