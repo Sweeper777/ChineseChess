@@ -27,6 +27,19 @@ class ViewController: UIViewController {
             self.messageLabel.alpha = 1
         }
     }
+
+    func showMoveResult(_ moveResult: MoveResult) {
+        switch moveResult {
+        case .success:
+            break
+        case .check:
+            showMessage("將！")
+        case .checkmate:
+            showMessage("將死！")
+        case .stalemate:
+            showMessage("困斃！")
+        }
+    }
 }
 
 extension ViewController : ChessBoardViewDelegate {
