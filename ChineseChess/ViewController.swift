@@ -60,7 +60,8 @@ extension ViewController : ChessBoardViewDelegate {
                 let moveResult = try game.makeMove(move)
                 chessBoardView.selectedPosition = nil
                 chessBoardView.selectablePositions = []
-                // TODO: visualise moveResult
+                showMoveResult(moveResult)
+
             } catch {
                 // TODO: show error message on screen
                 print(error)
