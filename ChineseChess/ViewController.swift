@@ -5,6 +5,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var chessBoardView: ChessBoardView!
     @IBOutlet var messageLabel: UILabel!
+    var autoMoveButton: UIButton!
 
     let game = Game()
 
@@ -14,6 +15,15 @@ class ViewController: UIViewController {
         chessBoardView.board = game
         chessBoardView.delegate = self
         messageLabel.layer.borderWidth = 3
+
+        autoMoveButton = UIButton(type: .system)
+        autoMoveButton.setTitle("查詢着法數據庫", for: .normal)
+        view.addSubview(autoMoveButton)
+        autoMoveButton.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(16)
+            make.right.equalTo(view.safeAreaLayoutGuide.snp.rightMargin).offset(-16)
+        }
+        autoMoveButton.addTarget(self, action: #selector(waitForChessDBMove), for: .touchUpInside)
     }
 
     @objc func waitForChessDBMove() {
