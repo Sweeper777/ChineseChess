@@ -16,6 +16,24 @@ class ViewController: UIViewController {
         messageLabel.layer.borderWidth = 3
     }
 
+    @objc func waitForChessDBMove() {
+        // TODO: disable player moves
+
+        requestNextMove(game: game) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    self.showUnexpectedError(error)
+                case .success(.move(let move)):
+                    let moveResult = try! self.game.makeMove(move)
+                    self.showMoveResult(moveResult, player: self.game.currentPlayer)
+                    self.chessBoardView.deselectAll()
+                case .success(let anotherResult):
+                    self.showAPIResult(apiResult: anotherResult)
+                }
+            }
+        }
+    }
 
     func showMessage(_ message: String) {
         messageLabel.text = message
