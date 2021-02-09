@@ -57,7 +57,7 @@ public class Game : Board{
         }
     }
     
-    func validateMoveRangeAndDestination(move: Move, in board: Array2D<Piece?>, player: Player) throws -> Piece {
+    func validateMoveRangeAndDestination(move: Move, player: Player) throws -> Piece {
         guard let movingPiece = board[safe: move.from] as? Piece,
               let destination = board[safe: move.to] else {
             throw MoveError.invalidPosition
@@ -68,7 +68,7 @@ public class Game : Board{
         return movingPiece
     }
     
-    private func validateKingInCheck(move: Move, in board: Array2D<Piece?>, player: Player) throws {
+    private func validateKingInCheck(move: Move, player: Player) throws {
         // try this move
         var boardCopy = board
         boardCopy[move.to] = board[move.from]
@@ -88,7 +88,7 @@ public class Game : Board{
     
     public func validateMove(_ move: Move) throws {
         
-        let movingPiece = try validateMoveRangeAndDestination(move: move, in: board, player: currentPlayer)
+        let movingPiece = try validateMoveRangeAndDestination(move: move, player: currentPlayer)
         
         guard movingPiece.player == currentPlayer else {
             throw MoveError.opponentsPiece
@@ -98,7 +98,7 @@ public class Game : Board{
             throw pieceRulesError
         }
         
-        try validateKingInCheck(move: move, in: board, player: currentPlayer)
+        try validateKingInCheck(move: move, player: currentPlayer)
     }
     
     public func makeMove(_ move: Move) throws -> MoveResult {
@@ -119,8 +119,8 @@ public class Game : Board{
         let allOpposingPositions = allPositions(of: opposingPlayer)
         let allOpposingMoves = allOpposingPositions.flatMap { board[$0]?.allMoves(from: $0, in: board) ?? [] }
         let opposingPlayerHasNoMoves = allOpposingMoves.filter {
-            (try? validateMoveRangeAndDestination(move: $0, in: board, player: opposingPlayer)) != nil &&
-            (try? validateKingInCheck(move: $0, in: board, player: opposingPlayer)) != nil
+            (try? validateMoveRangeAndDestination(move: $0, player: opposingPlayer)) != nil &&
+            (try? validateKingInCheck(move: $0, player: opposingPlayer)) != nil
         }.isEmpty
         currentPlayer = opposingPlayer
         switch (check, opposingPlayerHasNoMoves)  {
