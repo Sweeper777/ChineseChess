@@ -22,7 +22,7 @@ extension Position {
         guard (0..<10).contains(y) else {
             return nil
         }
-        self.init(x, y)
+        self.init(x, 9 - y)
     }
 }
 
