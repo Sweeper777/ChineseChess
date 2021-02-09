@@ -177,4 +177,13 @@ class ChessModelTests: XCTestCase {
             }
         }
     }
+
+    func testFalsePositiveStalemate() throws {
+        let game = Game()
+        _ = try game.makeMove(Move(from: Position(6, 6), to: Position(6, 5)))
+        _ = try game.makeMove(Move(from: Position(4, 3), to: Position(4, 4)))
+        _ = try game.makeMove(Move(from: Position(4, 6), to: Position(4, 5)))
+        let moveResult = try game.makeMove(Move(from: Position(4, 4), to: Position(4, 5)))
+        XCTAssertEqual(MoveResult.success, moveResult)
+    }
 }
