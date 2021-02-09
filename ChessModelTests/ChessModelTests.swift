@@ -169,7 +169,7 @@ class ChessModelTests: XCTestCase {
             if let piece = game.piece(at: position) {
                 let allMoves = piece.allMoves(from: position, in: game.board)
                 for move in allMoves {
-                    if (try? game.validateMoveRangeAndDestination(move: move)) == nil {
+                    if (try? game.validateMoveRangeAndDestination(move: move, player: game.currentPlayer)) == nil {
                         continue
                     }
                     XCTAssertNil(piece.validateMove(move, in: game.board), "\(move) is not a valid move!")
