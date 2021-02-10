@@ -62,16 +62,16 @@ class ViewController: UIViewController {
         }
     }
 
-    func showMoveResult(_ moveResult: MoveResult) {
+    func showMoveResult(_ moveResult: MoveResult, player: Player) {
         switch moveResult {
         case .success:
             break
         case .check:
             showMessage("將！")
         case .checkmate:
-            showMessage("將死！")
+            showMessage("\(player == .red ? "紅" : "黑")方被將死！")
         case .stalemate:
-            showMessage("困斃！")
+            showMessage("\(player == .red ? "紅" : "黑")方被困斃！")
         }
     }
 
