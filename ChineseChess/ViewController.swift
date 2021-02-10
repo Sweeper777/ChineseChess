@@ -4,7 +4,7 @@ import ChessModel
 class ViewController: UIViewController {
 
     @IBOutlet var chessBoardView: ChessBoardView!
-    @IBOutlet var messageLabel: UILabel!
+    var messageLabel: MessageView!
     var autoMoveButton: UIButton!
 
     let game = Game()
@@ -14,7 +14,13 @@ class ViewController: UIViewController {
 
         chessBoardView.board = game
         chessBoardView.delegate = self
-        messageLabel.layer.borderWidth = 3
+
+        messageLabel = MessageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        view.addSubview(messageLabel)
+        messageLabel.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+        messageLabel.isHidden = true
 
         autoMoveButton = UIButton(type: .system)
         autoMoveButton.setTitle("查詢着法數據庫", for: .normal)
