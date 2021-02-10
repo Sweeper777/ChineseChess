@@ -85,6 +85,19 @@ class ViewController: UIViewController {
         }
     }
 
+    func showMoveError(_ moveError: MoveError) {
+        switch moveError {
+        case .blocked:
+            showMessage("蹩馬腿或塞象眼！")
+        case .checked:
+            showMessage("不應將！")
+        case .invalidPosition:
+            showMessage("不符棋規！")
+        case .opponentsPiece:
+            showMessage("對方棋子！")
+        }
+    }
+
 }
 
 extension ViewController : ChessBoardViewDelegate {
