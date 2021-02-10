@@ -74,6 +74,17 @@ class ViewController: UIViewController {
             showMessage("困斃！")
         }
     }
+
+    func showAPIResult(apiResult: APIResult) {
+        switch apiResult {
+        case .move: break
+        case .invalidBoard:
+            showMessage("當前局面無效！")
+        case .noBestMove:
+            showMessage("數據庫中無最佳着法！")
+        }
+    }
+
 }
 
 extension ViewController : ChessBoardViewDelegate {
