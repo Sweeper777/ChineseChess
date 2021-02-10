@@ -23,31 +23,21 @@
                                     <constraint firstAttribute="width" secondItem="vNA-Nm-i5L" secondAttribute="height" multiplier="9:10" id="QoS-vX-72M"/>
                                 </constraints>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqy-SR-JYi">
-                                <rect key="frame" x="363" y="501.5" width="42" height="21"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vNA-Nm-i5L" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="6qK-Fx-LzV"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vNA-Nm-i5L" secondAttribute="trailing" constant="16" id="7Mj-mJ-nGS"/>
-                            <constraint firstItem="Vqy-SR-JYi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="APZ-LX-cul"/>
                             <constraint firstItem="vNA-Nm-i5L" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" priority="750" constant="16" id="CBZ-Hl-PdS"/>
                             <constraint firstItem="vNA-Nm-i5L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="J4N-Gd-sGk"/>
                             <constraint firstItem="vNA-Nm-i5L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ntt-XZ-ZRI"/>
-                            <constraint firstItem="Vqy-SR-JYi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SkF-aR-tXo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vNA-Nm-i5L" secondAttribute="bottom" constant="16" id="Vjj-eF-3Zr"/>
                             <constraint firstItem="vNA-Nm-i5L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bSE-kZ-QBN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chessBoardView" destination="vNA-Nm-i5L" id="m9a-oE-siM"/>
-                        <outlet property="messageLabel" destination="Vqy-SR-JYi" id="L2b-QY-MhC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
