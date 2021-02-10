@@ -98,6 +98,12 @@ class ViewController: UIViewController {
         }
     }
 
+    func showUnexpectedError(_ error: Error) {
+        let alert = UIAlertController(title: "錯誤！", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "好", style: .default))
+        present(alert, animated: true)
+        print(error)
+    }
 }
 
 extension ViewController : ChessBoardViewDelegate {
