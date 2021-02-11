@@ -109,28 +109,28 @@ class ViewController: UIViewController {
 extension ViewController : ChessBoardViewDelegate {
     func didTapPosition(_ position: Position) {
         if position == chessBoardView.selectedPosition {
-            chessBoardView.selectedPosition = nil
-            chessBoardView.selectablePositions = []
+            chessBoardView.deselectAll()
         } else if let tappedPiece = game.piece(at: position), tappedPiece.player == game.currentPlayer {
             chessBoardView.selectedPosition = position
             chessBoardView.selectablePositions =
                     tappedPiece.allMoves(from: position, in: game)
                             .filter { (try? game.validateMove($0)) != nil }
                             .map(\.to)
+            chessBoardView.selectablePositionsColor = game.currentPlayer == .red ? .red : .label
         } else if let startPosition = chessBoardView.selectedPosition,
                   let _ = game.piece(at: startPosition) {
             let move = Move(from: startPosition, to: position)
             do {
                 let moveResult = try game.makeMove(move)
-                chessBoardView.selectedPosition = nil
-                chessBoardView.selectablePositions = []
-                showMoveResult(moveResult)
+                chessBoardView.deselectAll()
+                showMoveResult(moveResult, player: game.currentPlayer)
 
+//                waitForChessDBMove()
+            } catch let moveError as MoveError {
+                showMoveError(moveError)
             } catch {
-                // TODO: show error message on screen
-                print(error)
+                showUnexpectedError(error)
             }
         }
     }
 }
-
