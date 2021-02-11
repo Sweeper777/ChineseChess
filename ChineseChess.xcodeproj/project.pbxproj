@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		1CD57B2503CB9D0D2FEAA613 /* Pods_ChessModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9851D41B5CB111B8B7BC19C0 /* Pods_ChessModel.framework */; };
 		25EF0480B155B6E046435B9D /* FENFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF090C1CC529BF4B5FA0E5 /* FENFormat.swift */; };
-		25EF0E3D7A45A63C2AEA365E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF00D78B34082458745835 /* Helpers.swift */; };
+		25EF05675F82EAEEFFA6A7DE /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF0A46395EB1C4E455C1B9 /* APIHelper.swift */; };
+		25EF0E3D7A45A63C2AEA365E /* FontHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF00D78B34082458745835 /* FontHelpers.swift */; };
+		25EF0F0B2779FB07CFB313E9 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF04ADB90C97245B52E574 /* MessageView.swift */; };
 		3C9472826127E7FAFEFEC10A /* Pods_ChineseChess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9E6E8A88ACEF5EEA5519B /* Pods_ChineseChess.framework */; };
 		5A607B5F25C4F32900A7A2FF /* ChessBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A607B5E25C4F32900A7A2FF /* ChessBoardView.swift */; };
 		5A607B7D25C528CA00A7A2FF /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF0FE8963830FD378654ED /* Board.swift */; };
@@ -78,8 +80,10 @@
 
 /* Begin PBXFileReference section */
 		139C9777D556B2155D43D91D /* Pods-ChessModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessModel.release.xcconfig"; path = "Target Support Files/Pods-ChessModel/Pods-ChessModel.release.xcconfig"; sourceTree = "<group>"; };
-		25EF00D78B34082458745835 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		25EF00D78B34082458745835 /* FontHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelpers.swift; sourceTree = "<group>"; };
+		25EF04ADB90C97245B52E574 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		25EF090C1CC529BF4B5FA0E5 /* FENFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FENFormat.swift; sourceTree = "<group>"; };
+		25EF0A46395EB1C4E455C1B9 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		25EF0FE8963830FD378654ED /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		2614648B8F4ACBBA464D94F5 /* Pods-ChineseChess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseChess.release.xcconfig"; path = "Target Support Files/Pods-ChineseChess/Pods-ChineseChess.release.xcconfig"; sourceTree = "<group>"; };
 		508DAB953635B909C3451867 /* Pods-ChineseChess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseChess.debug.xcconfig"; path = "Target Support Files/Pods-ChineseChess/Pods-ChineseChess.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,8 +207,10 @@
 				5A65255125BBAC5200FAB962 /* Assets.xcassets */,
 				5A65255325BBAC5200FAB962 /* LaunchScreen.storyboard */,
 				5A65255625BBAC5200FAB962 /* Info.plist */,
-				25EF00D78B34082458745835 /* Helpers.swift */,
+				25EF00D78B34082458745835 /* FontHelpers.swift */,
 				25EF090C1CC529BF4B5FA0E5 /* FENFormat.swift */,
+				25EF0A46395EB1C4E455C1B9 /* APIHelper.swift */,
+				25EF04ADB90C97245B52E574 /* MessageView.swift */,
 			);
 			path = ChineseChess;
 			sourceTree = "<group>";
@@ -477,8 +483,10 @@
 				5A65254D25BBAC5000FAB962 /* ViewController.swift in Sources */,
 				5A65254925BBAC5000FAB962 /* AppDelegate.swift in Sources */,
 				5A65254B25BBAC5000FAB962 /* SceneDelegate.swift in Sources */,
-				25EF0E3D7A45A63C2AEA365E /* Helpers.swift in Sources */,
+				25EF0E3D7A45A63C2AEA365E /* FontHelpers.swift in Sources */,
 				25EF0480B155B6E046435B9D /* FENFormat.swift in Sources */,
+				25EF05675F82EAEEFFA6A7DE /* APIHelper.swift in Sources */,
+				25EF0F0B2779FB07CFB313E9 /* MessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
