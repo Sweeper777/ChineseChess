@@ -9,7 +9,7 @@ class ChessBoardView: UIView {
             setNeedsDisplay()
         }
     }
-    
+
     var selectedPosition: Position? {
         didSet {
             setNeedsDisplay()
@@ -17,6 +17,12 @@ class ChessBoardView: UIView {
     }
 
     var selectablePositions: [Position] = [] {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    var selectablePositionsColor: UIColor = .label {
         didSet {
             setNeedsDisplay()
         }
@@ -203,7 +209,7 @@ class ChessBoardView: UIView {
                 let dotRect = CGRect(origin: center(forPosition: pos), size: .zero)
                                 .insetBy(dx: -squareSize / 5, dy: -squareSize / 5)
                 let path = UIBezierPath(ovalIn: dotRect)
-                UIColor.label.setFill()
+                selectablePositionsColor.setFill()
                 path.fill()
             }
         }
