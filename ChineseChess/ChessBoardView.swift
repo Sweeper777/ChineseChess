@@ -50,9 +50,27 @@ class ChessBoardView: UIView {
         }
 
         func drawRiver() {
-            let river = UIBezierPath(rect: CGRect(
+            let riverRect = CGRect(
                     x: 0, y: 4 * squareSize, width: 8 * squareSize, height: squareSize
-            ))
+            )
+            let transformedRiverRect = riverRect.applying(
+                    CGAffineTransform(translationX: squareSize / 2, y: squareSize / 2)
+            ).insetBy(dx: 0, dy: riverRect.height / 4)
+            let riverText = "楚河　　　漢界" as NSString
+            let fontSize = fontSizeThatFits(
+                    size: transformedRiverRect.size,
+                    text: riverText,
+                    font: UIFont.systemFont(ofSize: 1)
+            )
+            let paraStyle = NSMutableParagraphStyle()
+            paraStyle.alignment = .center
+            riverText.draw(in: transformedRiverRect, withAttributes: [
+                .font: UIFont.systemFont(ofSize: fontSize),
+                .foregroundColor: UIColor.label,
+                .paragraphStyle: paraStyle
+            ])
+
+            let river = UIBezierPath(rect: riverRect)
             path.append(river)
         }
 
