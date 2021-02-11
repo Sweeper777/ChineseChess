@@ -246,6 +246,11 @@ class ChessBoardView: UIView {
         let y = Int(touchLocation.y / squareSize)
         delegate?.didTapPosition(Position(x, y))
     }
+
+    func deselectAll() {
+        selectedPosition = nil
+        selectablePositions = []
+    }
 }
 
 protocol ChessBoardViewDelegate : class {
