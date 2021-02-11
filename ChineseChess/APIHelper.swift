@@ -18,7 +18,7 @@ func requestNextMove(game: Game, completion: @escaping (Result<APIResult, Error>
         return
     }
     urlComponents.queryItems = [
-        URLQueryItem(name: "action", value: "querybest"),
+        URLQueryItem(name: "action", value: "queryall"),
         URLQueryItem(name: "board", value: game.fenFormatString()),
     ]
 
@@ -46,7 +46,7 @@ fileprivate func parseResponseData(_ data: Data) -> Result<APIResult, Error> {
     guard let responseString = String(data: data, encoding: .utf8) else {
         return .failure(APIError.invalidEncoding)
     }
-    if responseString.starts(with: "nobestmove") {
+    if responseString.starts(with: "unknown") || responseString.starts(with: "checkmate") || responseString.starts(with: "stalemate") {
         return .success(.noBestMove)
     } else if responseString.starts(with: "invalid board") {
         return .success(.invalidBoard)
