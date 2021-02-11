@@ -9,6 +9,8 @@ class ViewController: UIViewController {
 
     let game = Game()
 
+    var isFetching = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,10 +35,11 @@ class ViewController: UIViewController {
     }
 
     @objc func waitForChessDBMove() {
-        // TODO: disable player moves
+        isFetching = true
 
         requestNextMove(game: game) { result in
             DispatchQueue.main.async {
+                self.isFetching = false
                 switch result {
                 case .failure(let error):
                     self.showUnexpectedError(error)
@@ -108,6 +111,10 @@ class ViewController: UIViewController {
 
 extension ViewController : ChessBoardViewDelegate {
     func didTapPosition(_ position: Position) {
+        if isFetching {
+            return
+        }
+
         if position == chessBoardView.selectedPosition {
             chessBoardView.deselectAll()
         } else if let tappedPiece = game.piece(at: position), tappedPiece.player == game.currentPlayer {
