@@ -11,6 +11,24 @@ class ViewController: UIViewController {
 
     var isFetching = false
 
+    func generateMenu() -> UIMenu {
+        UIMenu(children: [
+            UIAction(title: "新局") { _ in
+                self.game = Game()
+                self.chessBoardView.board = self.game
+                self.chessBoardView.deselectAll()
+            },
+            UIAction(title: "自動走紅", state: doRedAutoMoves ? .on : .off) { _ in
+                self.doRedAutoMoves.toggle()
+                self.waitForChessDBMove()
+            },
+            UIAction(title: "自動走黑", state: doBlackAutoMoves ? .on : .off) { _ in
+                self.doBlackAutoMoves.toggle()
+                self.waitForChessDBMove()
+            },
+        ])
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
