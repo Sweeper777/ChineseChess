@@ -1,6 +1,13 @@
 public class Game : Board{
     var board = Array2D<Piece?>(columns: 9, rows: 10, initialValue: nil)
-    public var currentPlayer = Player.red
+    public var currentPlayer = Player.red {
+        didSet {
+            delegate?.turnDidChange()
+        }
+    }
+
+    public weak var delegate: GameDelegate?
+
     public var opposingPlayer: Player {
         currentPlayer.opponent
     }
@@ -134,4 +141,8 @@ public class Game : Board{
             return .checkmate
         }
     }
+}
+
+public protocol GameDelegate : class {
+    func turnDidChange()
 }
