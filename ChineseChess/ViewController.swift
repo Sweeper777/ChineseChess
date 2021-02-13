@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             },
             UIAction(title: "自動走紅", state: doRedAutoMoves ? .on : .off) { _ in
                 self.doRedAutoMoves.toggle()
-                self.waitForChessDBMove()
+                self.tryAutoMove()
             },
             UIAction(title: "自動走黑", state: doBlackAutoMoves ? .on : .off) { _ in
                 self.doBlackAutoMoves.toggle()
@@ -63,13 +63,17 @@ class ViewController: UIViewController {
         menuButton.menu = generateMenu()
     }
 
-    @objc func waitForChessDBMove() {
-        if isFetching {
+    func tryAutoMove() {
+        guard (doBlackAutoMoves && game.currentPlayer == .black) ||
+                      (doRedAutoMoves && game.currentPlayer == .red) else {
             return
         }
 
-        guard (doBlackAutoMoves && game.currentPlayer == .black) ||
-                      (doRedAutoMoves && game.currentPlayer == .red) else {
+        waitForChessDBMove()
+    }
+
+    func waitForChessDBMove() {
+        if isFetching {
             return
         }
 
