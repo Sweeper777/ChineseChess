@@ -5,7 +5,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var chessBoardView: ChessBoardView!
     var messageLabel: MessageView!
-    var autoMoveButton: UIButton!
+    var menuButton: UIButton!
 
     let game = Game()
 
@@ -24,14 +24,13 @@ class ViewController: UIViewController {
         }
         messageLabel.isHidden = true
 
-        autoMoveButton = UIButton(type: .system)
-        autoMoveButton.setTitle("查詢着法數據庫", for: .normal)
-        view.addSubview(autoMoveButton)
-        autoMoveButton.snp.makeConstraints { (make) in
+        menuButton = UIButton(type: .system)
+        menuButton.setTitle("菜單", for: .normal)
+        view.addSubview(menuButton)
+        menuButton.snp.makeConstraints { (make) in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(16)
             make.right.equalTo(view.safeAreaLayoutGuide.snp.rightMargin).offset(-16)
         }
-        autoMoveButton.addTarget(self, action: #selector(waitForChessDBMove), for: .touchUpInside)
     }
 
     @objc func waitForChessDBMove() {
