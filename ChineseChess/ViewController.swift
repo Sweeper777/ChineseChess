@@ -7,9 +7,19 @@ class ViewController: UIViewController {
     var messageLabel: MessageView!
     var menuButton: UIButton!
 
-    let game = Game()
+    var game = Game()
 
     var isFetching = false
+    var doRedAutoMoves = false {
+        didSet {
+            menuButton.menu = generateMenu()
+        }
+    }
+    var doBlackAutoMoves = false {
+        didSet {
+            menuButton.menu = generateMenu()
+        }
+    }
 
     func generateMenu() -> UIMenu {
         UIMenu(children: [
