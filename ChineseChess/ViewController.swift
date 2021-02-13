@@ -64,6 +64,15 @@ class ViewController: UIViewController {
     }
 
     @objc func waitForChessDBMove() {
+        if isFetching {
+            return
+        }
+
+        guard (doBlackAutoMoves && game.currentPlayer == .black) ||
+                      (doRedAutoMoves && game.currentPlayer == .red) else {
+            return
+        }
+
         isFetching = true
 
         requestNextMove(game: game) { result in
