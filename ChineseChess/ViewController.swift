@@ -142,12 +142,12 @@ class ViewController: UIViewController {
         }
     }
 
-    func showMoveError(_ moveError: MoveError) {
+    func showMoveError(_ moveError: MoveError, player: Player) {
         switch moveError {
         case .blocked:
             showMessage("蹩馬腿或塞象眼！")
         case .checked:
-            showMessage("不應將！")
+            showMessage("\(player == .red ? "帥" : "將")被將！")
         case .invalidPosition:
             showMessage("不符棋規！")
         case .opponentsPiece:
@@ -185,10 +185,8 @@ extension ViewController : ChessBoardViewDelegate {
                 let moveResult = try game.makeMove(move)
                 chessBoardView.deselectAll()
                 showMoveResult(moveResult, player: game.currentPlayer)
-
-//                waitForChessDBMove()
             } catch let moveError as MoveError {
-                showMoveError(moveError)
+                showMoveError(moveError, player: game.currentPlayer)
             } catch {
                 showUnexpectedError(error)
             }
