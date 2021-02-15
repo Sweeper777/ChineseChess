@@ -39,6 +39,9 @@ class ViewController: UIViewController {
             },
             UIAction(title: "自動走黑", state: doBlackAutoMoves ? .on : .off) { _ in
                 self.doBlackAutoMoves.toggle()
+                self.tryAutoMove()
+            },
+            UIAction(title: "查詢着法數據庫", state: doBlackAutoMoves ? .on : .off) { _ in
                 self.waitForChessDBMove()
             },
         ])
