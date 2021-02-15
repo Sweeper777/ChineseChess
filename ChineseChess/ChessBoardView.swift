@@ -28,6 +28,18 @@ class ChessBoardView: UIView {
         }
     }
 
+    var previousLocation: Position? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    var previousLocationColor: UIColor? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
     weak var delegate: ChessBoardViewDelegate?
     
     override func draw(_ rect: CGRect) {
