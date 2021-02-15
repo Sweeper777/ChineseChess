@@ -21,12 +21,17 @@ class ViewController: UIViewController {
         }
     }
 
+    func newGame() {
+        game = Game()
+        game.delegate = self
+        chessBoardView.board = game
+        chessBoardView.deselectAll()
+    }
+
     func generateMenu() -> UIMenu {
         UIMenu(children: [
             UIAction(title: "新局") { _ in
-                self.game = Game()
-                self.chessBoardView.board = self.game
-                self.chessBoardView.deselectAll()
+                self.newGame()
             },
             UIAction(title: "自動走紅", state: doRedAutoMoves ? .on : .off) { _ in
                 self.doRedAutoMoves.toggle()
