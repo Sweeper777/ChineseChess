@@ -183,3 +183,9 @@ extension ViewController : ChessBoardViewDelegate {
         }
     }
 }
+
+extension ViewController: GameDelegate {
+    public func turnDidChange() {
+        tryAutoMove()
+    }
+}
