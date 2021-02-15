@@ -217,6 +217,19 @@ class ChessBoardView: UIView {
             ), withAttributes: [.font: font, .foregroundColor: UIColor.white])
         }
 
+        func drawPreviousLocation(_ position: Position) {
+            let centerOfPiece = center(forPosition: position)
+            let circlePath = UIBezierPath(
+                    ovalIn: CGRect(origin: centerOfPiece, size: .zero)
+                            .insetBy(dx: -squareSize * 0.4, dy: -squareSize * 0.4)
+            )
+            circlePath.lineWidth = strokeWidth * 1.2
+            let pattern = [strokeWidth * 4, strokeWidth]
+            circlePath.setLineDash(pattern, count: 2, phase: 0)
+            previousLocationColor?.setStroke()
+            circlePath.stroke()
+        }
+
         let fontSize = calculateFontSize()
         let font = UIFont.systemFont(ofSize: fontSize)
         let offset = calculateOffset(withFont: font)
@@ -232,6 +245,10 @@ class ChessBoardView: UIView {
                     drawChessPiece(piece, at: pos, font: font, offset: offset, isSelected: selectedPosition == pos)
                 }
             }
+        }
+
+        if let prevLoc = previousLocation {
+            drawPreviousLocation(prevLoc)
         }
 
         func drawSelectablePositions() {
