@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        chessBoardView.board = game
+        newGame()
         chessBoardView.delegate = self
 
         messageLabel = MessageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
@@ -97,6 +97,10 @@ class ViewController: UIViewController {
                     let moveResult = try! self.game.makeMove(move)
                     self.showMoveResult(moveResult, player: self.game.currentPlayer)
                     self.chessBoardView.deselectAll()
+                case .success(.noBestMove):
+                    self.doRedAutoMoves = false
+                    self.doBlackAutoMoves = false
+                    self.showAPIResult(apiResult: .noBestMove)
                 case .success(let anotherResult):
                     self.showAPIResult(apiResult: anotherResult)
                 }
