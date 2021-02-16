@@ -97,6 +97,9 @@ class ViewController: UIViewController {
                     let moveResult = try! self.game.makeMove(move)
                     self.showMoveResult(moveResult, player: self.game.currentPlayer)
                     self.chessBoardView.deselectAll()
+                    self.chessBoardView.previousLocation = move.from
+                    self.chessBoardView.previousLocationColor = self.game.currentPlayer.opponent == .red ?
+                            UIColor(named: "redPieceBackground") : UIColor(named: "blackPieceBackground")
                 case .success(.noBestMove):
                     self.doRedAutoMoves = false
                     self.doBlackAutoMoves = false
@@ -184,6 +187,9 @@ extension ViewController : ChessBoardViewDelegate {
             do {
                 let moveResult = try game.makeMove(move)
                 chessBoardView.deselectAll()
+                chessBoardView.previousLocation = startPosition
+                chessBoardView.previousLocationColor = game.currentPlayer.opponent == .red ?
+                        UIColor(named: "redPieceBackground") : UIColor(named: "blackPieceBackground")
                 showMoveResult(moveResult, player: game.currentPlayer)
             } catch let moveError as MoveError {
                 showMoveError(moveError, player: game.currentPlayer)
