@@ -1,7 +1,7 @@
 import UIKit
 import ChessModel
 
-class ViewController: UIViewController {
+class ChessViewController: UIViewController {
 
     @IBOutlet var chessBoardView: ChessBoardView!
     var messageLabel: MessageView!
@@ -166,7 +166,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController : ChessBoardViewDelegate {
+extension ChessViewController : ChessBoardViewDelegate {
     func didTapPosition(_ position: Position) {
         if isFetching {
             return
@@ -200,7 +200,7 @@ extension ViewController : ChessBoardViewDelegate {
     }
 }
 
-extension ViewController: GameDelegate {
+extension ChessViewController: GameDelegate {
     public func turnDidChange() {
         tryAutoMove()
     }
