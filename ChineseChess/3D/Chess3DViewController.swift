@@ -14,6 +14,7 @@ class Chess3DViewController : UIViewController {
         sceneView.autoenablesDefaultLighting = true
         sceneView.backgroundColor = .black
         sceneView.showsStatistics = true
-        sceneView.backgroundColor = .black
+        sceneView.backgroundColor = .white
+        sceneView.pointOfView = scene.cameraNode
     }
 }

@@ -1,12 +1,16 @@
 import SceneKit
+import ChessModel
 
 class ChineseChessScene: SCNScene {
     var cameraNode: SCNNode!
+    let game = Game()
 
     func setup() {
         cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 0, y: 10, z: 0)
+        cameraNode.position = boardPosToScenePos(Position(4, 18))
+        cameraNode.position.y = 10
+        cameraNode.eulerAngles.x = -0.523599
         cameraNode.eulerAngles.y = -.pi / 2
     }
 }
