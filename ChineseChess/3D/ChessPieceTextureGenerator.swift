@@ -34,6 +34,20 @@ enum ChessPieceTextureGenerator {
         return image
     }
 
+    static func materials(for chessPiece: Piece) -> [SCNMaterial] {
+        let color = chessPiece.player == .red ? UIColor(named: "redPieceBackground") : UIColor(named: "blackPieceBackground")
+        let topFace = texture(for: chessPiece)
+        let topFaceMaterial = SCNMaterial()
+        topFaceMaterial.diffuse.contents = topFace
+        topFaceMaterial.specular.contents = UIColor.white
+        topFaceMaterial.shininess = 1
+        let bottomFaceMaterial = SCNMaterial()
+        bottomFaceMaterial.diffuse.contents = color
+        bottomFaceMaterial.specular.contents = UIColor.white
+        bottomFaceMaterial.shininess = 1
+        return [bottomFaceMaterial, topFaceMaterial, bottomFaceMaterial]
+    }
+
 }
 
 extension UIImage {
