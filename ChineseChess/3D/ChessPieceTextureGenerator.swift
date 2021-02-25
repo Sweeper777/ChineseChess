@@ -48,6 +48,21 @@ enum ChessPieceTextureGenerator {
         return [bottomFaceMaterial, topFaceMaterial, bottomFaceMaterial]
     }
 
+    static let chessBoardMaterial: [SCNMaterial] = {
+        let chessBoardView = ChessBoardView(frame: CGRect(x: 0, y: 0, width: 900, height: 1000))
+        chessBoardView.board = ConstantBoard(dictionary: [:])
+        UIGraphicsBeginImageContext(CGSize(width: 900, height: 1000))
+        UIColor.systemBackground.setFill()
+        UIRectFill(CGRect(x: 0, y: 0, width: 900, height: 1000))
+        chessBoardView.draw(CGRect(x: 0, y: 0, width: 900, height: 1000))
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        let topFaceMaterial = SCNMaterial()
+        topFaceMaterial.diffuse.contents = image
+        let otherFacesMaterial = SCNMaterial()
+        otherFacesMaterial.diffuse.contents = UIColor.systemBackground
+        return [otherFacesMaterial, otherFacesMaterial, otherFacesMaterial, otherFacesMaterial, topFaceMaterial, otherFacesMaterial]
+    }()
 }
 
 extension UIImage {
