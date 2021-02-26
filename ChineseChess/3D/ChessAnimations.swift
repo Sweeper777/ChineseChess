@@ -20,4 +20,15 @@ enum ChessAnimations {
         return scnAnimation
     }
 
+    static func fadeAnimation(completion: @escaping () -> Void) -> SCNAnimationProtocol {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 1
+        animation.toValue = 0
+        animation.duration = 0.5
+        let scnAnimation = SCNAnimation(caAnimation: animation)
+        scnAnimation.animationDidStop = { animation, animatable, b in
+            completion()
+        }
+        return scnAnimation
+    }
 }
