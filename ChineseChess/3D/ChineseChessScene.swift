@@ -24,6 +24,15 @@ class ChineseChessScene: SCNScene {
                 }
             }
         }
+
+        let boardGeometry = SCNBox(width: 9, height: 0.1, length: 10, chamferRadius: 0)
+        boardGeometry.materials = ChessPieceTextureGenerator.chessBoardMaterial
+        let boardNode = SCNNode(geometry: boardGeometry)
+        boardNode.eulerAngles.y = -.pi / 2
+        boardNode.position = SCNVector3(4.5, 0, 4)
+        boardNode.position.y = -0.15
+        rootNode.addChildNode(boardNode)
+
     }
 }
 
