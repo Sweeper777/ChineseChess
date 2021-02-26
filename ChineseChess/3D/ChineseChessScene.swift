@@ -34,6 +34,9 @@ class ChineseChessScene: SCNScene {
         rootNode.addChildNode(boardNode)
 
     }
+
+    func didTapBoardPos(_ position: Position, nodeTapped: SCNNode?) {
+    }
 }
 
 func boardPosToScenePos(_ position: Position) -> SCNVector3 {
