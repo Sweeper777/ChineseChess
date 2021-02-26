@@ -15,6 +15,8 @@
 		25EF0749006B0880D66B1346 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF09470B92AA8A05B1B448 /* MessageView.swift */; };
 		25EF08E8B521E39C9C67BB56 /* ChineseChessScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF04B3CAD46C0A8854E866 /* ChineseChessScene.swift */; };
 		25EF0C242F170918AD520874 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF07D606CC076ED7154506 /* APIHelper.swift */; };
+		25EF0C3AA1BAEFAC6EE98E48 /* ChessAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF0E910D03BB34DA13B5E5 /* ChessAnimations.swift */; };
+		25EF0E59839C4BA63CFCF9CF /* ChessPieceTextureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF00C7D28605FE94F54BFC /* ChessPieceTextureGenerator.swift */; };
 		25EF0FC959C0EC9D38830944 /* Chess3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF087CA32E46CDDA51DCD3 /* Chess3DViewController.swift */; };
 		3C9472826127E7FAFEFEC10A /* Pods_ChineseChess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9E6E8A88ACEF5EEA5519B /* Pods_ChineseChess.framework */; };
 		5A607B7D25C528CA00A7A2FF /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF0FE8963830FD378654ED /* Board.swift */; };
@@ -82,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		139C9777D556B2155D43D91D /* Pods-ChessModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessModel.release.xcconfig"; path = "Target Support Files/Pods-ChessModel/Pods-ChessModel.release.xcconfig"; sourceTree = "<group>"; };
+		25EF00C7D28605FE94F54BFC /* ChessPieceTextureGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessPieceTextureGenerator.swift; sourceTree = "<group>"; };
 		25EF04B3CAD46C0A8854E866 /* ChineseChessScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseChessScene.swift; sourceTree = "<group>"; };
 		25EF06631D69FF4EFEA1F928 /* ChessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessViewController.swift; sourceTree = "<group>"; };
 		25EF07D606CC076ED7154506 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		25EF087CA32E46CDDA51DCD3 /* Chess3DViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chess3DViewController.swift; sourceTree = "<group>"; };
 		25EF09470B92AA8A05B1B448 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		25EF0ADC0FB7AF0046897D4E /* FENFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FENFormat.swift; sourceTree = "<group>"; };
+		25EF0E910D03BB34DA13B5E5 /* ChessAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessAnimations.swift; sourceTree = "<group>"; };
 		25EF0EC8A99E6933C8204738 /* FontHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelpers.swift; sourceTree = "<group>"; };
 		25EF0FE8963830FD378654ED /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		2614648B8F4ACBBA464D94F5 /* Pods-ChineseChess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseChess.release.xcconfig"; path = "Target Support Files/Pods-ChineseChess/Pods-ChineseChess.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 			children = (
 				25EF087CA32E46CDDA51DCD3 /* Chess3DViewController.swift */,
 				25EF04B3CAD46C0A8854E866 /* ChineseChessScene.swift */,
+				25EF00C7D28605FE94F54BFC /* ChessPieceTextureGenerator.swift */,
+				25EF0E910D03BB34DA13B5E5 /* ChessAnimations.swift */,
 			);
 			path = 3D;
 			sourceTree = "<group>";
@@ -519,6 +525,8 @@
 				25EF0749006B0880D66B1346 /* MessageView.swift in Sources */,
 				25EF0FC959C0EC9D38830944 /* Chess3DViewController.swift in Sources */,
 				25EF08E8B521E39C9C67BB56 /* ChineseChessScene.swift in Sources */,
+				25EF0E59839C4BA63CFCF9CF /* ChessPieceTextureGenerator.swift in Sources */,
+				25EF0C3AA1BAEFAC6EE98E48 /* ChessAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
