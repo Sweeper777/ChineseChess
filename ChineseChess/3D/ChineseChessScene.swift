@@ -36,6 +36,27 @@ class ChineseChessScene: SCNScene {
     }
 
     func didTapBoardPos(_ position: Position, nodeTapped: SCNNode?) {
+        if let tappedPiece = game.piece(at: position) {
+            let allMoves = tappedPiece.allMoves(from: position, in: game)
+                    .filter { (try? game.validateMove($0)) != nil }
+            if let move = allMoves.first {
+                let animation = ChessAnimations.animation(from: move) {
+                    nodeTapped?.position = boardPosToScenePos(move.to)
+                }
+                nodeTapped?.addAnimation(animation, forKey: nil)
+                if let taken = game.piece(at: move.to) {
+                    let takenPosition = boardPosToScenePos(move.to)
+                    let takenNode = rootNode.childNodes { node, pointer in
+                        abs(node.position.x - takenPosition.x) < 0.0001 &&
+                                abs(node.position.z - takenPosition.z) < 0.0001
+                    }.first
+                    takenNode?.addAnimation(ChessAnimations.fadeAnimation {
+                        takenNode?.removeFromParentNode()
+                    }, forKey: nil)
+                }
+                try! game.makeMove(move)
+            }
+        }
     }
 }
 
