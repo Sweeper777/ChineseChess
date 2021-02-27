@@ -33,6 +33,20 @@ class ChineseChessScene: SCNScene {
         boardNode.position.y = -0.15
         rootNode.addChildNode(boardNode)
 
+        addLight(position: SCNVector3(-10, 10, -10))
+        addLight(position: SCNVector3(-10, 10, 20))
+        addLight(position: SCNVector3(20, 10, 20))
+        addLight(position: SCNVector3(20, 10, -10))
+        addLight(position: SCNVector3(5, 10, 5), castsShadows: true)
+    }
+
+    func addLight(position: SCNVector3, castsShadows: Bool = false) {
+        let lightNode = SCNNode()
+        lightNode.position = position
+        lightNode.light = SCNLight()
+        lightNode.light?.type = .omni
+        lightNode.light?.castsShadow = castsShadows
+        rootNode.addChildNode(lightNode)
     }
 
     func didTapBoardPos(_ position: Position, nodeTapped: SCNNode?) {
