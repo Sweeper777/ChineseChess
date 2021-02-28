@@ -39,10 +39,25 @@ enum ChessAnimations {
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 1
         animation.toValue = 0
-        animation.duration = 0.5
+        animation.duration = animationDuration
         let scnAnimation = SCNAnimation(caAnimation: animation)
         scnAnimation.animationDidStop = { animation, animatable, b in
-            completion()
+            if b {
+                completion()
+            }
+        }
+        return scnAnimation
+    }
+
+    static func selectAnimation(completion: @escaping (Float) -> Void) -> SCNAnimationProtocol {
+        let animation = CABasicAnimation(keyPath: "position.y")
+        animation.fromValue = 0
+        animation.toValue = selectedHeight
+        let scnAnimation = SCNAnimation(caAnimation: animation)
+        scnAnimation.animationDidStop = { animation, animatable, b in
+            if b {
+                completion(0)
+            }
         }
         return scnAnimation
     }
