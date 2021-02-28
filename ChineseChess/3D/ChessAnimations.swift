@@ -2,20 +2,35 @@ import SceneKit
 import ChessModel
 
 enum ChessAnimations {
-    static func animation(from move: Move, completion: @escaping () -> Void) -> SCNAnimationProtocol {
+
+    private static let selectedHeight: Float = 0.5
+    private static let animationDuration = 0.5
+    private static let selectAnimationDuration = 0.2
+
+    static func animation(from move: Move, isAlreadySelected: Bool, completion: @escaping (SCNVector3) -> Void) -> SCNAnimationProtocol {
         let animation = CAKeyframeAnimation(keyPath: "position")
         let startPos = boardPosToScenePos(move.from)
         let endPos = boardPosToScenePos(move.to)
-        animation.values = [
-            startPos,
-            SCNVector3(startPos.x, 0.5, startPos.z),
-            SCNVector3(endPos.x, 0.5, endPos.z),
-            endPos
-        ]
-        animation.duration = 0.5
+        if isAlreadySelected {
+            animation.values = [
+                SCNVector3(startPos.x, selectedHeight, startPos.z),
+                SCNVector3(endPos.x, selectedHeight, endPos.z),
+                endPos
+            ]
+        } else {
+            animation.values = [
+                startPos,
+                SCNVector3(startPos.x, selectedHeight, startPos.z),
+                SCNVector3(endPos.x, selectedHeight, endPos.z),
+                endPos
+            ]
+        }
+        animation.duration = animationDuration
         let scnAnimation = SCNAnimation(caAnimation: animation)
         scnAnimation.animationDidStop = { animation, animatable, b in
-            completion()
+            if b {
+                completion(endPos)
+            }
         }
         return scnAnimation
     }
