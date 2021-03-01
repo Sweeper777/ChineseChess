@@ -13,12 +13,27 @@ class ChineseChessScene: SCNScene {
     let selectablePositionIndicatorRadius: CGFloat = 0.16
 
     func setup() {
+        setupCamera()
+        setupPieceNodes()
+        setupBoard()
+
+        addLight(position: SCNVector3(-10, 10, -10))
+        addLight(position: SCNVector3(-10, 10, 20))
+        addLight(position: SCNVector3(20, 10, 20))
+        addLight(position: SCNVector3(20, 10, -10))
+        addLight(position: SCNVector3(5, 10, 5), castsShadows: true)
+    }
+
+    private func setupCamera() {
         cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.position = boardPosToScenePos(Position(4, 18))
         cameraNode.position.y = 10
         cameraNode.eulerAngles.x = -0.523599
         cameraNode.eulerAngles.y = -.pi / 2
+    }
+
+    private func setupPieceNodes() {
         for y in 0...9 {
             for x in 0...8 {
                 if let piece = game.piece(at: Position(x, y)) {
@@ -31,7 +46,9 @@ class ChineseChessScene: SCNScene {
                 }
             }
         }
+    }
 
+    private func setupBoard() {
         let boardGeometry = SCNBox(width: 9, height: 0.1, length: 10, chamferRadius: 0)
         boardGeometry.materials = ChessPieceTextureGenerator.chessBoardMaterial
         let boardNode = SCNNode(geometry: boardGeometry)
@@ -39,12 +56,6 @@ class ChineseChessScene: SCNScene {
         boardNode.position = SCNVector3(4.5, 0, 4)
         boardNode.position.y = -0.15
         rootNode.addChildNode(boardNode)
-
-        addLight(position: SCNVector3(-10, 10, -10))
-        addLight(position: SCNVector3(-10, 10, 20))
-        addLight(position: SCNVector3(20, 10, 20))
-        addLight(position: SCNVector3(20, 10, -10))
-        addLight(position: SCNVector3(5, 10, 5), castsShadows: true)
     }
 
     func addLight(position: SCNVector3, castsShadows: Bool = false) {
