@@ -102,8 +102,31 @@ class ChineseChessScene: SCNScene {
         }
     }
 
+    func selectPosition(_ position: Position?, animated: Bool) {
+        if animated {
+            if let old = selectedPosition,
+               let selectedNode = nodeAtBoardPosition(old) {
+                selectedNode.addAnimation(ChessAnimations.deselectAnimation { endY in
+                    selectedNode.position.y = endY
+                }, forKey: "select")
+            }
+            if let new = position,
+               let selectedNode = nodeAtBoardPosition(new) {
+                selectedNode.addAnimation(ChessAnimations.selectAnimation { endY in
+                    selectedNode.position.y = endY
+                }, forKey: "deselect")
             }
         }
+        if let new = position, let piece = game.piece(at: new) {
+            let allMoves = piece.allMoves(from: new, in: game)
+            setSelectablePositions(allMoves
+                    .filter { (try? game.validateMove($0)) != nil }
+                    .map(\.to))
+        } else {
+            setSelectablePositions([])
+        }
+        selectedPosition = position
+    }
 
     private func nodeAtBoardPosition(_ position: Position) -> SCNNode? {
         let scenePos = boardPosToScenePos(position)
