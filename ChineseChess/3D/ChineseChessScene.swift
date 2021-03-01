@@ -4,6 +4,13 @@ import ChessModel
 class ChineseChessScene: SCNScene {
     var cameraNode: SCNNode!
     let game = Game()
+    var selectedPosition: Position?
+    private var selectablePositionNodes: [SCNNode] = []
+    weak var delegate: ChessSceneDelegate?
+
+    let pieceRadius: CGFloat = 0.4
+    let pieceHeight: CGFloat = 0.2
+    let selectablePositionIndicatorRadius: CGFloat = 0.16
 
     func setup() {
         cameraNode = SCNNode()
