@@ -90,6 +90,15 @@ class ChineseChessScene: SCNScene {
                 try! game.makeMove(move)
             }
         }
+
+    private func nodeAtBoardPosition(_ position: Position) -> SCNNode? {
+        let scenePos = boardPosToScenePos(position)
+        return rootNode.childNodes { node, pointer in
+            abs(node.position.x - scenePos.x) < 0.0001 &&
+                    abs(node.position.z - scenePos.z) < 0.0001
+        }.first
+    }
+
     }
 }
 
