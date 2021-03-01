@@ -88,6 +88,20 @@ class ChineseChessScene: SCNScene {
                     }, forKey: nil)
                 }
                 try! game.makeMove(move)
+    func animateMove(_ move: Move, completion: @escaping () -> Void) {
+        let movingNode = nodeAtBoardPosition(move.from)
+        movingNode?.addAnimation(ChessAnimations.animation(from: move, isAlreadySelected: false) { endPos in
+            movingNode?.position = endPos
+            DispatchQueue.main.async(execute: completion)
+        }, forKey: nil)
+        if let _ = game.piece(at: move.to) {
+            let takenNode = nodeAtBoardPosition(move.to)
+            takenNode?.addAnimation(ChessAnimations.fadeAnimation {
+                takenNode?.removeFromParentNode()
+            }, forKey: nil)
+        }
+    }
+
             }
         }
 
