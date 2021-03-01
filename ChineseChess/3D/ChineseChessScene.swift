@@ -38,6 +38,7 @@ class ChineseChessScene: SCNScene {
             for x in 0...8 {
                 if let piece = game.piece(at: Position(x, y)) {
                     let geometry = SCNCylinder(radius: pieceRadius, height: pieceHeight)
+                    geometry.radialSegmentCount = 20
                     geometry.materials = ChessPieceTextureGenerator.materials(for: piece)
                     let node = SCNNode(geometry: geometry)
                     node.position = boardPosToScenePos(Position(x, y))
