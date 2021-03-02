@@ -36,6 +36,14 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
         sceneView.allowsCameraControl = true
         sceneView.backgroundColor = .black
         sceneView.backgroundColor = .white
+
+        messageLabel = MessageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        view.addSubview(messageLabel)
+        messageLabel.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+        messageLabel.isHidden = true
+
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
