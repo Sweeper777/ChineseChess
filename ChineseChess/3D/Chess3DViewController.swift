@@ -22,10 +22,17 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
         }
     }
 
+    func newGame() {
         scene = ChineseChessScene()
         scene.setup()
         sceneView.scene = scene
+        scene.delegate = self
+        scene.game.delegate = self
+        sceneView.pointOfView = scene.cameraNode
+    }
+
     override func viewDidLoad() {
+        newGame()
         sceneView.allowsCameraControl = true
         sceneView.autoenablesDefaultLighting = true
         sceneView.backgroundColor = .black
