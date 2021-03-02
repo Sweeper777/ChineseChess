@@ -68,26 +68,40 @@ class ChineseChessScene: SCNScene {
         rootNode.addChildNode(lightNode)
     }
 
-    func didTapBoardPos(_ position: Position, nodeTapped: SCNNode?) {
-        if let tappedPiece = game.piece(at: position) {
-            let allMoves = tappedPiece.allMoves(from: position, in: game)
-                    .filter { (try? game.validateMove($0)) != nil }
-            if let move = allMoves.first {
-                let animation = ChessAnimations.animation(from: move) {
-                    nodeTapped?.position = boardPosToScenePos(move.to)
+    func didTapBoardPos(_ position: Position) {
+        if position == selectedPosition {
+            selectPosition(nil, animated: true)
+        } else if let tappedPiece = game.piece(at: position),
+                  tappedPiece.player == game.currentPlayer {
+            selectPosition(position, animated: true)
+        } else if let startPosition = selectedPosition,
+                  let _ = game.piece(at: startPosition),
+                  let nodeMoved = nodeAtBoardPosition(startPosition) {
+            let move = Move(from: startPosition, to: position)
+            do {
+                let result = try game.makeMove(move)
+                selectPosition(nil, animated: false)
+                let animation = ChessAnimations.animation(from: move, isAlreadySelected: true) { endPos in
+                    nodeMoved.position = endPos
+                    DispatchQueue.main.async {
+                        self.delegate?.didMakeMove(moveResult: result, player: self.game.currentPlayer)
+                    }
                 }
-                nodeTapped?.addAnimation(animation, forKey: nil)
-                if let taken = game.piece(at: move.to) {
-                    let takenPosition = boardPosToScenePos(move.to)
-                    let takenNode = rootNode.childNodes { node, pointer in
-                        abs(node.position.x - takenPosition.x) < 0.0001 &&
-                                abs(node.position.z - takenPosition.z) < 0.0001
-                    }.first
+                nodeMoved.addAnimation(animation, forKey: nil)
+                if let _ = game.piece(at: move.to) {
+                    let takenNode = nodeAtBoardPosition(move.to)
                     takenNode?.addAnimation(ChessAnimations.fadeAnimation {
                         takenNode?.removeFromParentNode()
                     }, forKey: nil)
                 }
-                try! game.makeMove(move)
+            } catch let error as MoveError {
+                delegate?.moveDidError(error, player: game.currentPlayer)
+            } catch {
+                delegate?.didUnexpectedError(error)
+            }
+        }
+    }
+
     func animateMove(_ move: Move, completion: @escaping () -> Void) {
         let movingNode = nodeAtBoardPosition(move.from)
         movingNode?.addAnimation(ChessAnimations.animation(from: move, isAlreadySelected: false) { endPos in
