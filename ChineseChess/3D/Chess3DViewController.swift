@@ -10,10 +10,22 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
 
     var scene: ChineseChessScene!
 
-    override func viewDidLoad() {
+    var isFetching = false
+    var doRedAutoMoves = false {
+        didSet {
+            menuButton.menu = generateMenu()
+        }
+    }
+    var doBlackAutoMoves = false {
+        didSet {
+            menuButton.menu = generateMenu()
+        }
+    }
+
         scene = ChineseChessScene()
         scene.setup()
         sceneView.scene = scene
+    override func viewDidLoad() {
         sceneView.allowsCameraControl = true
         sceneView.autoenablesDefaultLighting = true
         sceneView.backgroundColor = .black
