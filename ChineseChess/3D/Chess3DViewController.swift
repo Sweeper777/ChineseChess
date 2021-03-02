@@ -34,11 +34,8 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
     override func viewDidLoad() {
         newGame()
         sceneView.allowsCameraControl = true
-        sceneView.autoenablesDefaultLighting = true
         sceneView.backgroundColor = .black
-        sceneView.showsStatistics = true
         sceneView.backgroundColor = .white
-        sceneView.pointOfView = scene.cameraNode
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
