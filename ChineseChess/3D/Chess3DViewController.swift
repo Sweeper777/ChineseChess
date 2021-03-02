@@ -1,7 +1,11 @@
 import UIKit
 import SceneKit
+import ChessModel
 
-class Chess3DViewController : UIViewController {
+class Chess3DViewController : UIViewController, ChessMessageDisplayer {
+    var messageLabel: MessageView!
+    var menuButton: UIButton!
+
     @IBOutlet var sceneView: SCNView!
 
     var scene: ChineseChessScene!
