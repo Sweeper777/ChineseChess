@@ -136,6 +136,21 @@ class ChineseChessScene: SCNScene {
         }.first
     }
 
+    private func setSelectablePositions(_ selectablePositions: [Position]) {
+        for node in selectablePositionNodes {
+            node.removeFromParentNode()
+        }
+        selectablePositionNodes = []
+        for position in selectablePositions {
+            let scenePosition = boardPosToScenePos(position)
+            let geometry = SCNSphere(radius: selectablePositionIndicatorRadius)
+            geometry.segmentCount = 20
+            geometry.firstMaterial?.diffuse.contents = UIColor.green
+            let node = SCNNode(geometry: geometry)
+            node.position = scenePosition
+            selectablePositionNodes.append(node)
+            rootNode.addChildNode(node)
+        }
     }
 }
 
