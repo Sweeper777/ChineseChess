@@ -44,6 +44,14 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
         }
         messageLabel.isHidden = true
 
+        menuButton = UIButton(type: .system)
+        menuButton.setTitle("菜單", for: .normal)
+        menuButton.showsMenuAsPrimaryAction = true
+        view.addSubview(menuButton)
+        menuButton.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(16)
+            make.right.equalTo(view.safeAreaLayoutGuide.snp.rightMargin).offset(-16)
+        }
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
