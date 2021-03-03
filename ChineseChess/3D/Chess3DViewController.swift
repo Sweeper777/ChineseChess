@@ -31,6 +31,25 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
         sceneView.pointOfView = scene.cameraNode
     }
 
+    func generateMenu() -> UIMenu {
+        UIMenu(children: [
+            UIAction(title: "新局") { _ in
+                self.newGame()
+            },
+            UIAction(title: "自動走紅", state: doRedAutoMoves ? .on : .off) { _ in
+                self.doRedAutoMoves.toggle()
+                self.tryAutoMove()
+            },
+            UIAction(title: "自動走黑", state: doBlackAutoMoves ? .on : .off) { _ in
+                self.doBlackAutoMoves.toggle()
+                self.tryAutoMove()
+            },
+            UIAction(title: "查詢着法數據庫", state: doBlackAutoMoves ? .on : .off) { _ in
+                self.waitForChessDBMove()
+            },
+        ])
+    }
+
     override func viewDidLoad() {
         newGame()
         sceneView.allowsCameraControl = true
@@ -52,6 +71,7 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(16)
             make.right.equalTo(view.safeAreaLayoutGuide.snp.rightMargin).offset(-16)
         }
+        menuButton.menu = generateMenu()
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
