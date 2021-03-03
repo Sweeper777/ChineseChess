@@ -130,3 +130,19 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
         }
     }
 }
+
+extension Chess3DViewController : ChessSceneDelegate {
+    func didMakeMove(moveResult: MoveResult, player: Player) {
+        showMoveResult(moveResult, player: player)
+    }
+
+    func moveDidError(_ error: MoveError, player: Player) {
+        showMoveError(error, player: player)
+    }
+
+    func didUnexpectedError(_ error: Error) {
+        showUnexpectedError(error)
+    }
+
+
+}
