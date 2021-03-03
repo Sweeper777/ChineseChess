@@ -146,3 +146,9 @@ extension Chess3DViewController : ChessSceneDelegate {
 
 
 }
+
+extension Chess3DViewController: GameDelegate {
+    public func turnDidChange() {
+        tryAutoMove()
+    }
+}
