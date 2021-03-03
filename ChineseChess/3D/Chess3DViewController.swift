@@ -86,4 +86,15 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
             }
         }
     }
+
+    func tryAutoMove() {
+        guard (doBlackAutoMoves && scene.game.currentPlayer == .black) ||
+                      (doRedAutoMoves && scene.game.currentPlayer == .red) else {
+            return
+        }
+
+        waitForChessDBMove()
+            }
+        }
+    }
 }
