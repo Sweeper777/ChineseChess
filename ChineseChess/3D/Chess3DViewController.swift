@@ -94,6 +94,33 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
         }
 
         waitForChessDBMove()
+    }
+
+    func waitForChessDBMove() {
+        if isFetching {
+            return
+        }
+
+        isFetching = true
+
+        requestNextMove(game: scene.game) { result in
+            DispatchQueue.main.async {
+                self.isFetching = false
+                switch result {
+                case .failure(let error):
+                    self.showUnexpectedError(error)
+                case .success(.move(let move)):
+                    self.scene.animateMove(move) {
+                        let moveResult = try! self.scene.game.makeMove(move)
+                        self.showMoveResult(moveResult, player: self.scene.game.currentPlayer)
+                    }
+                case .success(.noBestMove):
+                    self.doRedAutoMoves = false
+                    self.doBlackAutoMoves = false
+                    self.showAPIResult(apiResult: .noBestMove)
+                case .success(let anotherResult):
+                    self.showAPIResult(apiResult: anotherResult)
+                }
             }
         }
     }
