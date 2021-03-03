@@ -77,12 +77,17 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
 
-        if let point = touches.first?.location(in: sceneView) {
+        if let touch = touches.first {
+            let previousPoint = touch.previousLocation(in: sceneView)
+            let point = touch.location(in: sceneView)
+            guard previousPoint == point else {
+                return
+            }
             let results = sceneView.hitTest(point)
-            if let firstResult = results.first(where: { $0.node.name == "piece" }) {
+            if let firstResult = results.first {
                 let scenePos = firstResult.worldCoordinates
                 let boardPos = scenePosToBoardPos(scenePos)
-                scene.didTapBoardPos(boardPos, nodeTapped: firstResult.node)
+                scene.didTapBoardPos(boardPos)
             }
         }
     }
