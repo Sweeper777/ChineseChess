@@ -67,17 +67,18 @@ class ChessBoardView: UIView {
             )
             let transformedRiverRect = riverRect.applying(
                     CGAffineTransform(translationX: squareSize / 2, y: squareSize / 2)
-            ).insetBy(dx: 0, dy: riverRect.height / 4)
-            let riverText = "楚河　　　漢界" as NSString
+            ).insetBy(dx: 0, dy: riverRect.height * 0.1)
+            let riverText = "楚河　　　汉界" as NSString
+            let sealScriptFont = UIFont(name: "FZXiaoZhuanTi-S13T", size: 10)!
             let fontSize = fontSizeThatFits(
                     size: transformedRiverRect.size,
                     text: riverText,
-                    font: UIFont.systemFont(ofSize: 1)
+                    font: sealScriptFont
             )
             let paraStyle = NSMutableParagraphStyle()
             paraStyle.alignment = .center
             riverText.draw(in: transformedRiverRect, withAttributes: [
-                .font: UIFont.systemFont(ofSize: fontSize),
+                .font: sealScriptFont.withSize(fontSize),
                 .foregroundColor: UIColor.label,
                 .paragraphStyle: paraStyle
             ])
