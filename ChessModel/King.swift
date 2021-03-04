@@ -9,9 +9,9 @@ class King : Piece {
     var localisedDescription: String {
         switch player {
         case .red:
-            return "帥"
+            return "帅"
         case .black:
-            return "將"
+            return "将"
         }
     }
 

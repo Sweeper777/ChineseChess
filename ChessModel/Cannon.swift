@@ -11,7 +11,7 @@ class Cannon : Piece {
         case .red:
             return "炮"
         case .black:
-            return "砲"
+            return "包"
         }
     }
 

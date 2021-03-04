@@ -9,9 +9,9 @@ class Horse : Piece {
     var localisedDescription: String {
         switch player {
         case .red:
-            return "傌"
+            return "马"
         case .black:
-            return "馬"
+            return "马"
         }
     }
 

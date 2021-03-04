@@ -9,9 +9,9 @@ class Chariot : Piece {
     var localisedDescription: String {
         switch player {
         case .red:
-            return "俥"
+            return "车"
         case .black:
-            return "車"
+            return "车"
         }
     }
 
