@@ -20,4 +20,5 @@ target 'ChineseChess' do
   # Pods for ChineseChess
   pod 'SwiftyUtils'
   pod 'SnapKit'
+  pod 'SwiftyButton'
 end
