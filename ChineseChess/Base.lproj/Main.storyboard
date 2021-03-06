@@ -1,13 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cfg-89-t27">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Of-ZM-GlK">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="方正小篆体.ttf">
+            <string>FZXZTFW--GB1-0</string>
+        </array>
+    </customFonts>
     <scenes>
+        <!--Main Menu View Controller-->
+        <scene sceneID="IwP-wA-ZO3">
+            <objects>
+                <viewController id="7Of-ZM-GlK" customClass="MainMenuViewController" customModule="ChineseChess" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eAQ-kt-osa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="11Y-Qm-hQy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="651"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国象棋" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTU-Ns-ESQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="I3F-Vt-a1s"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FZXZTFW--GB1-0" family="FZXiaoZhuanTi-S13T" pointSize="70"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="mhg-gA-bI0">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="381"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MkC-ll-hzy">
+                                        <rect key="frame" x="0.0" y="501" width="375" height="150"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEt-Hw-gcb" customClass="PressableButton" customModule="SwiftyButton">
+                                                <rect key="frame" x="116" y="0.0" width="143" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="QcD-BX-dNp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FZXZTFW--GB1-0" family="FZXiaoZhuanTi-S13T" pointSize="52"/>
+                                                <state key="normal" title="  二维  "/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                                        <real key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="twoDClick" destination="7Of-ZM-GlK" eventType="touchUpInside" id="gtj-3Z-kO4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nh-8f-9FY" customClass="PressableButton" customModule="SwiftyButton">
+                                                <rect key="frame" x="116" y="80" width="143" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="A5i-ZN-3mq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FZXZTFW--GB1-0" family="FZXiaoZhuanTi-S13T" pointSize="52"/>
+                                                <state key="normal" title="  三维  "/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                                        <real key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="threeDClick" destination="7Of-ZM-GlK" eventType="touchUpInside" id="o3p-Pb-iBh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="subviews">
+                                        <exclude reference="mhg-gA-bI0"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ie2-um-f54"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ie2-um-f54" firstAttribute="trailing" secondItem="11Y-Qm-hQy" secondAttribute="trailing" id="Pyp-QI-xoI"/>
+                            <constraint firstItem="11Y-Qm-hQy" firstAttribute="leading" secondItem="ie2-um-f54" secondAttribute="leading" id="SAG-gz-npg"/>
+                            <constraint firstItem="11Y-Qm-hQy" firstAttribute="top" secondItem="eAQ-kt-osa" secondAttribute="topMargin" id="eJb-05-q8Q"/>
+                            <constraint firstItem="ie2-um-f54" firstAttribute="bottom" secondItem="11Y-Qm-hQy" secondAttribute="bottom" constant="16" id="kea-rc-6Dj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="show2D" modalPresentationStyle="fullScreen" id="lgd-cV-bPk"/>
+                        <segue destination="Cfg-89-t27" kind="presentation" identifier="show3D" modalPresentationStyle="fullScreen" id="OTN-mB-roE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bWh-hI-h0x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1306.4000000000001" y="385.45727136431788"/>
+        </scene>
         <!--Chess View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -36,6 +127,7 @@
                             <constraint firstItem="vNA-Nm-i5L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bSE-kZ-QBN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Qd3-in-gMg"/>
                     <connections>
                         <outlet property="chessBoardView" destination="vNA-Nm-i5L" id="m9a-oE-siM"/>
                     </connections>
@@ -65,6 +157,7 @@
                             <constraint firstItem="4dP-4Z-FHj" firstAttribute="top" secondItem="Jia-6H-LFU" secondAttribute="top" id="sQd-Dv-Oys"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8GX-wh-pDr"/>
                     <connections>
                         <outlet property="sceneView" destination="4dP-4Z-FHj" id="Fbp-dY-Mba"/>
                     </connections>
@@ -74,7 +167,16 @@
             <point key="canvasLocation" x="-8.8000000000000007" y="757.87106446776613"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="1Nh-8f-9FY">
+            <size key="intrinsicContentSize" width="143" height="57"/>
+        </designable>
+        <designable name="PEt-Hw-gcb">
+            <size key="intrinsicContentSize" width="143" height="57"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="icon" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
