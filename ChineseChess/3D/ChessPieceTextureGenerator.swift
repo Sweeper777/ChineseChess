@@ -11,11 +11,10 @@ enum ChessPieceTextureGenerator {
         }
 
         let size = 500
-        let textSize = 450
+        let textSize = 400
         let offset = (size - textSize) / 2
 
-        let sealScriptFont = UIFont(name: "FZXiaoZhuanTi-S13T", size: 10)!
-        let fontSize = fontSizeThatFits(size: CGSize(width: textSize, height: textSize), text: chessPiece.localisedDescription as NSString, font: sealScriptFont)
+        let fontSize = fontSizeThatFits(size: CGSize(width: textSize, height: textSize), text: chessPiece.localisedDescription as NSString, font: UIFont.systemFont(ofSize: 0))
         UIGraphicsBeginImageContext(CGSize(width: size, height: size))
         (chessPiece.player == .red ? UIColor(named: "redPieceBackground") : UIColor(named: "blackPieceBackground"))!
             .setFill()
@@ -23,7 +22,7 @@ enum ChessPieceTextureGenerator {
         let paraStyle = NSMutableParagraphStyle()
         paraStyle.alignment = .center
         (chessPiece.localisedDescription as NSString).draw(in: CGRect(x: offset, y: offset, width: textSize, height: textSize), withAttributes: [
-            .font: sealScriptFont.withSize(fontSize),
+            .font: UIFont.systemFont(ofSize: fontSize),
             .foregroundColor: UIColor.white,
             .paragraphStyle: paraStyle
         ])
