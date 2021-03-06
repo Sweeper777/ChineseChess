@@ -47,6 +47,9 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
             UIAction(title: "查詢着法數據庫", state: doBlackAutoMoves ? .on : .off) { _ in
                 self.waitForChessDBMove()
             },
+            UIAction(title: "返回主菜單", image: UIImage(systemName: "xmark")) { _ in
+                self.dismiss(animated: true)
+            }
         ])
     }
 
