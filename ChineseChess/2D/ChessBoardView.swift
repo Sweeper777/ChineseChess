@@ -40,6 +40,12 @@ class ChessBoardView: UIView {
         }
     }
 
+    var isFlipped = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
     weak var delegate: ChessBoardViewDelegate?
     
     override func draw(_ rect: CGRect) {
