@@ -232,7 +232,7 @@ class ChessBoardView: UIView {
         }
 
         let fontSize = calculateFontSize()
-        let font = UIFont.systemFont(ofSize: fontSize)
+        let font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
         let offset = calculateOffset(withFont: font)
 
         guard let board = board else {
