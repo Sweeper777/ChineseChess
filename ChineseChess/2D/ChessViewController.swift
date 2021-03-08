@@ -26,6 +26,7 @@ class ChessViewController: UIViewController, ChessMessageDisplayer  {
         game.delegate = self
         chessBoardView.board = game
         chessBoardView.deselectAll()
+        chessBoardView.previousLocation = nil
     }
 
     func generateMenu() -> UIMenu {
