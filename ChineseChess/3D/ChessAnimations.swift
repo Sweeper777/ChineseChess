@@ -76,4 +76,23 @@ enum ChessAnimations {
         }
         return scnAnimation
     }
+
+    static func rotationAnimation(forPiece piece: SCNNode, completion: @escaping (Float) -> Void) -> SCNAnimationProtocol {
+        let animation = CABasicAnimation(keyPath: "eulerAngles.y")
+        if piece.eulerAngles.y == 0 {
+            animation.fromValue = 0
+            animation.toValue = Float.pi
+        } else {
+            animation.fromValue = piece.eulerAngles.y
+            animation.toValue = 0.0 as Float
+        }
+        animation.duration = selectAnimationDuration
+        let scnAnimation = SCNAnimation(caAnimation: animation)
+        scnAnimation.animationDidStop = { anim, animatable, b in
+            if b {
+                completion(animation.toValue as! Float)
+            }
+        }
+        return scnAnimation
+    }
 }
