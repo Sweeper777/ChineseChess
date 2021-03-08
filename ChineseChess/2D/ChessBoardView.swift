@@ -195,7 +195,7 @@ class ChessBoardView: UIView {
         func center(forPosition position: Position) -> CGPoint {
             CGPoint(
                     x: position.x.f * squareSize,
-                    y: position.y.f * squareSize
+                    y: (isFlipped ? (9 - position.y).f : position.y.f) * squareSize
             ).applying(CGAffineTransform(translationX: squareSize / 2, y: squareSize / 2))
         }
 
@@ -220,7 +220,7 @@ class ChessBoardView: UIView {
 
             (pieceName as NSString).draw(at: CGPoint(
                     x: position.x.f * squareSize + offset.x,
-                    y: position.y.f * squareSize + offset.y
+                    y: (isFlipped ? (9 - position.y).f : position.y.f) * squareSize + offset.y
             ), withAttributes: [.font: font, .foregroundColor: UIColor.white])
         }
 
@@ -280,7 +280,11 @@ class ChessBoardView: UIView {
         let touchLocation = touch.location(in: self)
         let x = Int(touchLocation.x / squareSize)
         let y = Int(touchLocation.y / squareSize)
-        delegate?.didTapPosition(Position(x, y))
+        if isFlipped {
+            delegate?.didTapPosition(Position(x, 9 - y))
+        } else {
+            delegate?.didTapPosition(Position(x, y))
+        }
     }
 
     func deselectAll() {
