@@ -86,6 +86,10 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
 
+        if scene.isAnimating {
+            return
+        }
+
         if let touch = touches.first {
             let previousPoint = touch.previousLocation(in: sceneView)
             let point = touch.location(in: sceneView)
@@ -111,7 +115,7 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
     }
 
     func waitForChessDBMove() {
-        if isFetching {
+        if isFetching || scene.isAnimating {
             return
         }
 
