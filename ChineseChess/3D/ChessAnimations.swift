@@ -26,6 +26,7 @@ enum ChessAnimations {
             ]
         }
         animation.duration = animationDuration
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         let scnAnimation = SCNAnimation(caAnimation: animation)
         scnAnimation.animationDidStop = { animation, animatable, b in
             if b {
@@ -54,6 +55,7 @@ enum ChessAnimations {
         animation.fromValue = 0
         animation.toValue = selectedHeight
         animation.duration = selectAnimationDuration
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         let scnAnimation = SCNAnimation(caAnimation: animation)
         scnAnimation.animationDidStop = { animation, animatable, b in
             if b {
@@ -68,6 +70,7 @@ enum ChessAnimations {
         animation.fromValue = selectedHeight
         animation.toValue = 0
         animation.duration = selectAnimationDuration
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         let scnAnimation = SCNAnimation(caAnimation: animation)
         scnAnimation.animationDidStop = { animation, animatable, b in
             if b {
