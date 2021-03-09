@@ -7,6 +7,7 @@ class ChineseChessScene: SCNScene {
     var selectedPosition: Position?
     private var selectablePositionNodes: [SCNNode] = []
     weak var delegate: ChessSceneDelegate?
+    var isAnimating = false
 
     let pieceRadius: CGFloat = 0.4
     let pieceHeight: CGFloat = 0.2
@@ -82,11 +83,13 @@ class ChineseChessScene: SCNScene {
                 let result = try game.makeMove(move)
                 selectPosition(nil, animated: false)
                 let animation = ChessAnimations.animation(from: move, isAlreadySelected: true) { endPos in
+                    self.isAnimating = false
                     nodeMoved.position = endPos
                     DispatchQueue.main.async {
                         self.delegate?.didMakeMove(moveResult: result, player: self.game.currentPlayer)
                     }
                 }
+                isAnimating = true
                 nodeMoved.addAnimation(animation, forKey: nil)
                 if let _ = game.piece(at: move.to) {
                     let takenNode = nodeAtBoardPosition(move.to)
@@ -103,8 +106,10 @@ class ChineseChessScene: SCNScene {
     }
 
     func animateMove(_ move: Move, completion: @escaping () -> Void) {
+        isAnimating = true
         let movingNode = nodeAtBoardPosition(move.from)
         movingNode?.addAnimation(ChessAnimations.animation(from: move, isAlreadySelected: false) { endPos in
+            self.isAnimating = false
             movingNode?.position = endPos
             DispatchQueue.main.async(execute: completion)
         }, forKey: nil)
@@ -120,13 +125,17 @@ class ChineseChessScene: SCNScene {
         if animated {
             if let old = selectedPosition,
                let selectedNode = nodeAtBoardPosition(old) {
+                isAnimating = true
                 selectedNode.addAnimation(ChessAnimations.deselectAnimation { endY in
+                    self.isAnimating = false
                     selectedNode.position.y = endY
                 }, forKey: "select")
             }
             if let new = position,
                let selectedNode = nodeAtBoardPosition(new) {
+                isAnimating = true
                 selectedNode.addAnimation(ChessAnimations.selectAnimation { endY in
+                    self.isAnimating = false
                     selectedNode.position.y = endY
                 }, forKey: "deselect")
             }
