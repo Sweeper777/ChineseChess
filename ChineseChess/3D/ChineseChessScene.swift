@@ -121,6 +121,19 @@ class ChineseChessScene: SCNScene {
         }
     }
 
+    func rotateBlackPieces() {
+        isAnimating = true
+        for pos in game.allPositions(of: .black) {
+            guard let pieceNode = nodeAtBoardPosition(pos) else {
+                continue
+            }
+            pieceNode.addAnimation(ChessAnimations.rotationAnimation(forPiece: pieceNode) { endY in
+                self.isAnimating = false
+                pieceNode.eulerAngles.y = endY
+            }, forKey: nil)
+        }
+    }
+
     func selectPosition(_ position: Position?, animated: Bool) {
         if animated {
             if let old = selectedPosition,
