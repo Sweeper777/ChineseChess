@@ -7,6 +7,7 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
     var menuButton: UIButton!
 
     @IBOutlet var sceneView: SCNView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     var scene: ChineseChessScene!
 
@@ -60,6 +61,7 @@ class Chess3DViewController : UIViewController, ChessMessageDisplayer {
     }
 
     override func viewDidLoad() {
+        activityIndicator.startAnimating()
         newGame()
         sceneView.allowsCameraControl = true
         sceneView.backgroundColor = .black
