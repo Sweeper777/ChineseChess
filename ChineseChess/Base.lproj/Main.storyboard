@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="501" width="375" height="150"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEt-Hw-gcb" customClass="PressableButton" customModule="SwiftyButton">
-                                                <rect key="frame" x="106.5" y="0.0" width="162" height="70"/>
+                                                <rect key="frame" x="116" y="0.0" width="143" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="QcD-BX-dNp"/>
                                                 </constraints>
@@ -56,7 +56,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nh-8f-9FY" customClass="PressableButton" customModule="SwiftyButton">
-                                                <rect key="frame" x="106.5" y="80" width="162" height="70"/>
+                                                <rect key="frame" x="116" y="80" width="143" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="A5i-ZN-3mq"/>
                                                 </constraints>
@@ -147,16 +147,11 @@
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dP-4Z-FHj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </sceneKitView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hhs-9B-So7">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jia-6H-LFU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4dP-4Z-FHj" firstAttribute="bottom" secondItem="Jia-6H-LFU" secondAttribute="bottom" id="4j6-Jd-zQT"/>
-                            <constraint firstItem="hhs-9B-So7" firstAttribute="centerX" secondItem="vk7-SI-EAy" secondAttribute="centerX" id="YLB-tW-dzj"/>
-                            <constraint firstItem="hhs-9B-So7" firstAttribute="centerY" secondItem="vk7-SI-EAy" secondAttribute="centerY" id="cSd-DD-cHy"/>
                             <constraint firstItem="4dP-4Z-FHj" firstAttribute="trailing" secondItem="Jia-6H-LFU" secondAttribute="trailing" id="g1R-4k-0cI"/>
                             <constraint firstItem="4dP-4Z-FHj" firstAttribute="leading" secondItem="Jia-6H-LFU" secondAttribute="leading" id="k2c-X2-z5O"/>
                             <constraint firstItem="4dP-4Z-FHj" firstAttribute="top" secondItem="Jia-6H-LFU" secondAttribute="top" id="sQd-Dv-Oys"/>
@@ -164,7 +159,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="8GX-wh-pDr"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="hhs-9B-So7" id="8K7-Ec-3ip"/>
                         <outlet property="sceneView" destination="4dP-4Z-FHj" id="Fbp-dY-Mba"/>
                     </connections>
                 </viewController>
@@ -175,10 +169,10 @@
     </scenes>
     <designables>
         <designable name="1Nh-8f-9FY">
-            <size key="intrinsicContentSize" width="162" height="61"/>
+            <size key="intrinsicContentSize" width="143" height="57"/>
         </designable>
         <designable name="PEt-Hw-gcb">
-            <size key="intrinsicContentSize" width="162" height="61"/>
+            <size key="intrinsicContentSize" width="143" height="57"/>
         </designable>
     </designables>
     <resources>
