@@ -13,6 +13,7 @@
 		25EF06E88AAD6FC055858235 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF039C56F589327ACA235E /* MessageView.swift */; };
 		25EF072D18DD39503CFC6186 /* ChessBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF0833BD2B0889637493FC /* ChessBoardView.swift */; };
 		25EF073244AB386F6C2970A0 /* FontHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF0EC8A99E6933C8204738 /* FontHelpers.swift */; };
+		25EF078D8A063059FB79A4BA /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF0292ABA52F57214A4799 /* MainMenuViewController.swift */; };
 		25EF08E8B521E39C9C67BB56 /* ChineseChessScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF04B3CAD46C0A8854E866 /* ChineseChessScene.swift */; };
 		25EF0A77D3729FDDDC41D009 /* 方正小篆体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25EF0C7C6BDFE02C0AB99A3A /* 方正小篆体.ttf */; };
 		25EF0A9A124A64A4921C5747 /* ChessSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF06E6131B9CB66F18A868 /* ChessSceneDelegate.swift */; };
@@ -89,6 +90,7 @@
 		139C9777D556B2155D43D91D /* Pods-ChessModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessModel.release.xcconfig"; path = "Target Support Files/Pods-ChessModel/Pods-ChessModel.release.xcconfig"; sourceTree = "<group>"; };
 		25EF00AF5A22CAFA480C4EA1 /* ChessMessageDisplayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessMessageDisplayer.swift; sourceTree = "<group>"; };
 		25EF00C7D28605FE94F54BFC /* ChessPieceTextureGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessPieceTextureGenerator.swift; sourceTree = "<group>"; };
+		25EF0292ABA52F57214A4799 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		25EF039C56F589327ACA235E /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		25EF04B3CAD46C0A8854E866 /* ChineseChessScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseChessScene.swift; sourceTree = "<group>"; };
 		25EF06631D69FF4EFEA1F928 /* ChessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChessViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				25EF0EC8A99E6933C8204738 /* FontHelpers.swift */,
 				25EF00AF5A22CAFA480C4EA1 /* ChessMessageDisplayer.swift */,
 				25EF039C56F589327ACA235E /* MessageView.swift */,
+				25EF0292ABA52F57214A4799 /* MainMenuViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				25EF0AF0865DE3909C6F1D49 /* ChessMessageDisplayer.swift in Sources */,
 				25EF06E88AAD6FC055858235 /* MessageView.swift in Sources */,
 				25EF0A9A124A64A4921C5747 /* ChessSceneDelegate.swift in Sources */,
+				25EF078D8A063059FB79A4BA /* MainMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
