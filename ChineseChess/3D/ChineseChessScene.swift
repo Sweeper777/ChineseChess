@@ -22,7 +22,6 @@ class ChineseChessScene: SCNScene {
         addLight(position: SCNVector3(-10, 10, 20))
         addLight(position: SCNVector3(20, 10, 20))
         addLight(position: SCNVector3(20, 10, -10))
-        addLight(position: SCNVector3(5, 10, 5), castsShadows: true)
     }
 
     private func setupCamera() {
@@ -60,12 +59,11 @@ class ChineseChessScene: SCNScene {
         rootNode.addChildNode(boardNode)
     }
 
-    func addLight(position: SCNVector3, castsShadows: Bool = false) {
+    func addLight(position: SCNVector3) {
         let lightNode = SCNNode()
         lightNode.position = position
         lightNode.light = SCNLight()
         lightNode.light?.type = .omni
-        lightNode.light?.castsShadow = castsShadows
         rootNode.addChildNode(lightNode)
     }
 
