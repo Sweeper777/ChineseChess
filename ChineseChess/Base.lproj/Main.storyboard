@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="501" width="375" height="150"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEt-Hw-gcb" customClass="PressableButton" customModule="SwiftyButton">
-                                                <rect key="frame" x="116" y="0.0" width="143" height="70"/>
+                                                <rect key="frame" x="106.5" y="0.0" width="162" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="QcD-BX-dNp"/>
                                                 </constraints>
@@ -56,7 +56,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nh-8f-9FY" customClass="PressableButton" customModule="SwiftyButton">
-                                                <rect key="frame" x="116" y="80" width="143" height="70"/>
+                                                <rect key="frame" x="106.5" y="80" width="162" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="A5i-ZN-3mq"/>
                                                 </constraints>
@@ -91,6 +91,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="threeDButton" destination="1Nh-8f-9FY" id="gWy-yD-m6v"/>
+                        <outlet property="twoDButton" destination="PEt-Hw-gcb" id="Kqr-SB-DNZ"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="show2D" modalPresentationStyle="fullScreen" id="lgd-cV-bPk"/>
                         <segue destination="Cfg-89-t27" kind="presentation" identifier="show3D" modalPresentationStyle="fullScreen" id="OTN-mB-roE"/>
                     </connections>
@@ -169,10 +171,10 @@
     </scenes>
     <designables>
         <designable name="1Nh-8f-9FY">
-            <size key="intrinsicContentSize" width="143" height="57"/>
+            <size key="intrinsicContentSize" width="162" height="61"/>
         </designable>
         <designable name="PEt-Hw-gcb">
-            <size key="intrinsicContentSize" width="143" height="57"/>
+            <size key="intrinsicContentSize" width="162" height="61"/>
         </designable>
     </designables>
     <resources>
