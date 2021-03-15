@@ -178,8 +178,8 @@ class ChessBoardView: UIView {
 
         func calculateFontSize() -> CGFloat {
             fontSizeThatFits(
-                    size: CGSize(width: squareSize / 2,
-                    height: squareSize / 2), text: "将",
+                size: CGSize(width: squareSize / 1.6,
+                             height: squareSize / 1.6), text: "将",
                     font: UIFont.systemFont(ofSize: 1)
             )
         }
